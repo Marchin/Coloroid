@@ -76,7 +76,19 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\openal32.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-audio-d-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-graphics-d-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-system-d-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-d-2.dll" "$(OutDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -84,7 +96,19 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\openal32.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-audio-d-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-graphics-d-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-system-d-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-d-2.dll" "$(OutDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -94,11 +118,22 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-s.lib;sfml-graphics-s.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\openal32.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-audio-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-graphics-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-system-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-2.dll" "$(OutDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -108,13 +143,25 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-s.lib;sfml-graphics-s.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\openal32.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-audio-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-graphics-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-system-2.dll" "$(OutDir)"
+COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

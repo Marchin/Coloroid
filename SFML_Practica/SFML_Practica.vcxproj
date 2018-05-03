@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
@@ -96,7 +96,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-d-2.dll" "$(OutDir)"</C
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -118,7 +118,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-d-2.dll" "$(OutDi
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -143,7 +143,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-2.dll" "$(OutDir)"</Com
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -161,7 +161,14 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Nave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

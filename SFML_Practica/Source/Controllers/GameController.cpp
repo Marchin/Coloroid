@@ -4,7 +4,6 @@ namespace controller {
 	GameController::GameController() {
 		using namespace input;
 		keys.push_back(Input(sf::Keyboard::Space));
-		keys.push_back(Input(sf::Keyboard::Space));
 		keys.push_back(Input(sf::Keyboard::Left));
 		keys.push_back(Input(sf::Keyboard::Right));
 		keys.push_back(Input(sf::Keyboard::A));
@@ -15,7 +14,7 @@ namespace controller {
 
 	void GameController::UpdateKeys() {
 		using namespace input;
-		for (int i = 0; i < keys.size; i++) {
+		for (int i = 0; i < keys.size(); i++) {
 			keys[i].Update();
 		}
 	}

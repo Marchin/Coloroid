@@ -3,8 +3,10 @@
 
 int main() {
 	player::Player player;
-	sf::RenderWindow window(sf::VideoMode(256, 240), "SFML works!");
-	sf::Vector2f screenCenter(window.getSize().x / 2.f, window.getSize().y / 2.f);
+	sf::RenderWindow window(sf::VideoMode(512, 480), "SFML works!");
+	sf::View view(sf::FloatRect(0, 0, 256, 240));
+	window.setView(view);
+	sf::Vector2f screenCenter(view.getSize().x / 2.f, view.getSize().y / 2.f);
 	player.Move(screenCenter);
 	sf::Clock clock;
 	sf::Time elapsed;

@@ -2,15 +2,12 @@
 
 namespace player {
 	Player::Player() {
-
 		if (!playerTexture.loadFromFile("Resources\\Nave.png")) {
 			printf("texture error");
 		}
-
 		playerSprite.setTexture(playerTexture);
 		playerSprite.setOrigin(Width()/2, Height()/2);
 	}
-
 
 	Player::Player(sf::Vector2f vec) {
 		Player();

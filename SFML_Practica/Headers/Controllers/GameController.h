@@ -10,7 +10,7 @@
 #define COLORIZE_YELLOW 6
 
 namespace controller {
-	class GameController :IController {
+	class GameController : public IController {
 	public:
 		virtual void UpdateKeys();
 		GameController();

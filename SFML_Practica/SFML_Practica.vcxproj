@@ -81,6 +81,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
     <PreBuildEvent>
       <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\openal32.dll" "$(OutDir)"
@@ -101,6 +102,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-d-2.dll" "$(OutDir)"</C
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
     <PreBuildEvent>
       <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\openal32.dll" "$(OutDir)"
@@ -126,6 +128,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-d-2.dll" "$(OutDi
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-s.lib;sfml-graphics-s.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
     <PreBuildEvent>
       <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\openal32.dll" "$(OutDir)"
@@ -151,6 +154,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-2.dll" "$(OutDir)"</Com
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-s.lib;sfml-graphics-s.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
     <PreBuildEvent>
       <Command>COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\openal32.dll" "$(OutDir)"
@@ -161,6 +165,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\ColorExtension.cpp" />
     <ClCompile Include="Source\Controllers\GameController.cpp" />
     <ClCompile Include="Source\Controllers\Input.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -170,9 +175,12 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClCompile Include="Source\States\GameState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resources\Asteroid.png" />
     <Image Include="Resources\Nave.png" />
+    <Image Include="Resources\Shot.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\ColorExtension.h" />
     <ClInclude Include="Headers\Controllers\GameController.h" />
     <ClInclude Include="Headers\Controllers\IController.h" />
     <ClInclude Include="Headers\Controllers\Input.h" />

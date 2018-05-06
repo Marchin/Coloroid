@@ -13,27 +13,37 @@ namespace shot {
 		m_beingFired = false;
 	}
 
-	float Shot::Width() {
+	float Shot::Width() const{
 		return m_sprite.getLocalBounds().width;
 	}
 
-	float Shot::Height() {
+	float Shot::Height() const{
 		return m_sprite.getLocalBounds().width;
 	}
 
-	void Shot::UpdateMovement(const float deltaTime) {
+	void Shot::UpdateMovement(const std::vector<sf::Sprite>& obstacles, const float deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
+			CheckCollision(obstacles);
+		}
+	}
+
+	void Shot::CheckCollision(const std::vector<sf::Sprite>& obstacles) {
+		for (int i = 0; obstacles.size(); i++) {
+			Collision::CircleTest(m_sprite, obstacles[i]);
 		}
 	}
 
 	void Shot::SetDirection(sf::Vector2f direction) {
 		m_direction = direction;
 	}
-	sf::Color Shot::GetColor() {
+
+	sf::Color Shot::GetColor() const{
 		return m_sprite.getColor();
 	}
+
 	void Shot::SetColor(sf::Color color) {
 		m_sprite.setColor(color);
 	}
+
 }

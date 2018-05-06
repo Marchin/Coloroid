@@ -28,14 +28,24 @@ namespace shot {
 		}
 	}
 
+	void Shot::SetDirection(sf::Vector2f direction) {
+		m_direction = direction;
+	}
+
 	void Shot::CheckCollision(const std::vector<sf::Sprite>& obstacles) {
 		for (int i = 0; obstacles.size(); i++) {
-			Collision::CircleTest(m_sprite, obstacles[i]);
+			if (Collision::CircleTest(m_sprite, obstacles[i])) {
+				if (m_sprite.getColor() == obstacles[i].getColor()) {
+					//destroy asteroid
+				}
+				Disable();
+			}
 		}
 	}
 
-	void Shot::SetDirection(sf::Vector2f direction) {
-		m_direction = direction;
+	void Shot::Disable() {
+		m_sprite.setColor(color::Transparent(m_sprite.getColor()));
+		m_beingFired = false;
 	}
 
 	sf::Color Shot::GetColor() const{

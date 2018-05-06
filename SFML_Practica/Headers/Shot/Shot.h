@@ -15,6 +15,7 @@ namespace shot {
 		float Width() const;
 		float Height() const;
 	private:
+		void Disable();
 		void CheckCollision(const std::vector<sf::Sprite>& obstacles);
 		float m_speed;
 		bool m_beingFired;

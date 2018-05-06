@@ -165,6 +165,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Colission.cpp" />
     <ClCompile Include="Source\ColorExtension.cpp" />
     <ClCompile Include="Source\Controllers\GameController.cpp" />
     <ClCompile Include="Source\Controllers\Input.cpp" />
@@ -180,6 +181,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <Image Include="Resources\Shot.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Collision.h" />
     <ClInclude Include="Headers\ColorExtension.h" />
     <ClInclude Include="Headers\Controllers\GameController.h" />
     <ClInclude Include="Headers\Controllers\IController.h" />

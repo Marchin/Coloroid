@@ -43,9 +43,18 @@ namespace shot {
 		}
 	}
 
+
 	void Shot::Disable() {
 		m_sprite.setColor(color::Transparent(m_sprite.getColor()));
 		m_beingFired = false;
+	}
+
+	void Shot::Enable() {
+		m_beingFired = true;
+	}
+
+	void Shot::SetPosition(sf::Vector2f position) {
+		m_sprite.setPosition(position);
 	}
 
 	sf::Color Shot::GetColor() const{
@@ -54,6 +63,10 @@ namespace shot {
 
 	void Shot::SetColor(sf::Color color) {
 		m_sprite.setColor(color);
+	}
+
+	bool Shot::IsAvailable() {
+		return !m_beingFired;
 	}
 
 }

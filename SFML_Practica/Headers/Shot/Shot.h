@@ -12,6 +12,9 @@ namespace shot {
 		void SetDirection(sf::Vector2f direction);
 		sf::Color GetColor() const;
 		void SetColor(sf::Color color);
+		bool IsAvailable();
+		void SetPosition(sf::Vector2f position);
+		void Enable();
 		float Width() const;
 		float Height() const;
 	private:

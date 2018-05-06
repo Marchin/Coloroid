@@ -2,35 +2,35 @@
 
 namespace player {
 	Player::Player() {
-		if (!playerTexture.loadFromFile("Resources\\Nave.png")) {
+		if (!m_texture.loadFromFile("Resources\\Nave.png")) {
 			printf("texture error");
 		}
-		playerSprite.setTexture(playerTexture);
-		playerSprite.setOrigin(Width()/2, Height()/2);
+		m_sprite.setTexture(m_texture);
+		m_sprite.setOrigin(Width()/2, Height()/2);
 	}
 
 	Player::Player(sf::Vector2f vec) {
 		Player();
-		playerSprite.move(vec);
+		m_sprite.move(vec);
 	}
 
 	sf::Sprite Player::GetPlayer() {
-		return playerSprite;
+		return m_sprite;
 	}
 
 	void Player::Rotate(float angle, const float deltaTime) {
-		playerSprite.rotate(angle * deltaTime);
+		m_sprite.rotate(angle * deltaTime);
 	}
 
-	void Player::Move(sf::Vector2f movement, float deltaTime) {
-		playerSprite.move(movement * deltaTime);
+	void Player::Move(sf::Vector2f movement, const float deltaTime) {
+		m_sprite.move(movement * deltaTime);
 	}
 
 	float Player::Width() {
-		return playerSprite.getLocalBounds().width;
+		return m_sprite.getLocalBounds().width;
 	}
 
 	float Player::Height() {
-		return playerSprite.getLocalBounds().width;
+		return m_sprite.getLocalBounds().width;
 	}
 }

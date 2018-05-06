@@ -12,7 +12,8 @@ namespace player {
 		float Width();
 		float Height();
 	private:
-		sf::Texture playerTexture;
-		sf::Sprite playerSprite;
+		sf::Texture m_texture;
+		sf::Sprite m_sprite;
+		sf::Color m_color;
 	};
 }

@@ -13,16 +13,17 @@ namespace shot {
 		sf::Color GetColor() const;
 		void SetColor(sf::Color color);
 		bool IsAvailable();
+		sf::Vector2f GetPosition() const;
 		void SetPosition(sf::Vector2f position);
 		void Enable();
+		void Disable();
 		float Width() const;
 		float Height() const;
 	private:
-		void Disable();
 		void CheckCollision(const std::vector<sf::Sprite>& obstacles);
 		float m_speed;
 		bool m_beingFired;
-		sf::Vector2f m_direction;
+		sf::Vector2f m_direction; 
 		sf::Sprite m_sprite;
 		sf::Texture m_texture;
 	};

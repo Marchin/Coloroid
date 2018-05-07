@@ -36,10 +36,11 @@ namespace player {
 		m_ammo->RequestShot(shotDirection);
 	}
 
-	void Player::UpdateShotsMovement(const std::array<sf::Sprite, 0>& obstacles,
+	void Player::UpdateShots(const std::array<sf::Sprite, 0>& obstacles,
 		const float deltaTime) {
 
-		m_ammo->UpdateMovement(obstacles, deltaTime);
+		m_ammo->Update(obstacles, deltaTime);
+		shotSprites = m_ammo->GetDrawables();
 	}
 
 	float Player::Width() const{
@@ -48,5 +49,14 @@ namespace player {
 
 	float Player::Height() const {
 		return m_sprite.getLocalBounds().width;
+	}
+
+	void Player::draw(sf::RenderTarget & target,
+		sf::RenderStates states) const {
+
+		target.draw(m_sprite, states);
+		for (sf::Sprite shotSprite : shotSprites) {
+			target.draw(shotSprite, states);
+		}
 	}
 }

@@ -21,7 +21,7 @@ namespace shotSys {
 		return m_sprite.getLocalBounds().width;
 	}
 
-	void Shot::UpdateMovement(const std::array<sf::Sprite,0>& obstacles,
+	void Shot::Update(const std::array<sf::Sprite,0>& obstacles,
 							const float deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
@@ -59,6 +59,10 @@ namespace shotSys {
 
 	sf::Vector2f Shot::GetPosition() const {
 		return m_sprite.getPosition();
+	}
+
+	sf::Sprite Shot::GetDrawable() const {
+		return m_sprite;
 	}
 
 	sf::Color Shot::GetColor() const{

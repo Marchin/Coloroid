@@ -8,11 +8,12 @@ namespace shotSys {
 	public:
 		ShotPool(const sf::View* pView);
 		~ShotPool();
+		std::array<sf::Sprite, AMMO_AMOUNT> GetDrawables();
 		void RequestShot(sf::Vector2f direction);
-		void UpdateMovement(const std::array<sf::Sprite,0>& obstacles,
+		void Update(const std::array<sf::Sprite,0>& obstacles,
 			const float deltaTime);
 	private:
-		bool IsShotAvailable(Shot*& availableShot);
+		bool IsShotAvailable(Shot*& shotRequester);
 		void ResetShotPosition(Shot& shot);
 		bool OutOfBound(const Shot& shot);
 		const sf::View* m_pView;

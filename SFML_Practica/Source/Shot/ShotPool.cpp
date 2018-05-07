@@ -12,6 +12,14 @@ namespace shotSys {
 	ShotPool::~ShotPool() {
 	}
 
+	std::array<sf::Sprite, AMMO_AMOUNT> ShotPool::GetDrawables() {
+		std::array<sf::Sprite, AMMO_AMOUNT> shotSprites;
+		for (int i = 0; i < m_shots.size(); i++) {
+			shotSprites[i] = m_shots[i].GetDrawable();
+		}
+		return shotSprites;
+	}
+
 	void ShotPool::RequestShot(sf::Vector2f direction) {
 		Shot* shot = nullptr;
 		if (IsShotAvailable(shot)) {
@@ -22,21 +30,21 @@ namespace shotSys {
 		}
 	}
 
-	void ShotPool::UpdateMovement(const std::array<sf::Sprite,0>& obstacles,
+	void ShotPool::Update(const std::array<sf::Sprite,0>& obstacles,
 		const float deltaTime) {
 		for (Shot shot : m_shots) {
-			shot.UpdateMovement(obstacles, deltaTime);
+			shot.Update(obstacles, deltaTime);
 			if (OutOfBound(shot)) {
 				shot.Disable();
 			}
 		}
 	}
 
-	bool ShotPool::IsShotAvailable(Shot*& availableShot) {
+	bool ShotPool::IsShotAvailable(Shot*& shotRequester) {
 		bool isAvailable = false;
-		for (Shot shot : m_shots) {
-			if (shot.IsAvailable()) {
-				availableShot = &shot;
+		for (int i = 0; i < m_shots.size(); i++) {
+			if (m_shots[i].IsAvailable()) {
+				shotRequester = &m_shots[i];
 				isAvailable = true;
 				break;
 			}

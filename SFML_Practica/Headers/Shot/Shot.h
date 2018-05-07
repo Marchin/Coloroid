@@ -8,12 +8,13 @@ namespace shotSys {
 	class Shot {
 	public:
 		Shot();
-		void UpdateMovement(const std::array<sf::Sprite,0>& obstacles, const float deltaTime);
+		void Update(const std::array<sf::Sprite,0>& obstacles, const float deltaTime);
 		void SetDirection(sf::Vector2f direction);
 		sf::Color GetColor() const;
 		void SetColor(sf::Color color);
 		bool IsAvailable();
 		sf::Vector2f GetPosition() const;
+		sf::Sprite GetDrawable() const;
 		void SetPosition(sf::Vector2f position);
 		void Enable();
 		void Disable();

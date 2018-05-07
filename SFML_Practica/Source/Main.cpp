@@ -27,10 +27,10 @@ int main() {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 			player.Fire();
 		}
-		player.UpdateShotsMovement(spriteVec, elapsed.asSeconds());
+		player.UpdateShots(spriteVec, elapsed.asSeconds());
 
 		window.clear();
-		window.draw(player.GetPlayer());
+		window.draw(player);
 		window.display();
 	}
 

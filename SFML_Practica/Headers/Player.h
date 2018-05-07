@@ -5,17 +5,22 @@
 namespace player {
 	class Player {
 	public:
-		Player();
-		Player(sf::Vector2f);
+		Player(sf::Vector2f position, const sf::View* pView);
+		~Player();
 		sf::Sprite GetPlayer();
 		void Rotate(float angle,const float deltaTime = 1.f);
 		void Move(sf::Vector2f, float deltaTime = 1.f);
-		float Width();
-		float Height();
+		void Fire();
+		void UpdateShotsMovement(
+			const std::array<sf::Sprite, 0>& obstacles,
+			const float deltaTime = 1.f);
+		float Width() const;
+		float Height() const;
 	private:
-		shot::ShotPool m_ammo;
+		shotSys::ShotPool* m_ammo;
 		sf::Texture m_texture;
 		sf::Sprite m_sprite;
 		sf::Color m_color;
+		const sf::View* m_pView;
 	};
 }

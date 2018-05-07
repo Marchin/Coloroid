@@ -1,6 +1,6 @@
 #include "Shot\Shot.h"
 
-namespace shot {
+namespace shotSys {
 	Shot::Shot() {
 		if (!m_texture.loadFromFile("Resources\\Shot.png")) {
 			printf("texture error");
@@ -21,7 +21,7 @@ namespace shot {
 		return m_sprite.getLocalBounds().width;
 	}
 
-	void Shot::UpdateMovement(const std::vector<sf::Sprite>& obstacles,
+	void Shot::UpdateMovement(const std::array<sf::Sprite,0>& obstacles,
 							const float deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
@@ -33,7 +33,7 @@ namespace shot {
 		m_direction = direction;
 	}
 
-	void Shot::CheckCollision(const std::vector<sf::Sprite>& obstacles) {
+	void Shot::CheckCollision(const std::array<sf::Sprite,0>& obstacles) {
 		for (int i = 0; obstacles.size(); i++) {
 			if (Collision::CircleTest(m_sprite, obstacles[i])) {
 				if (m_sprite.getColor() == obstacles[i].getColor()) {
@@ -43,7 +43,6 @@ namespace shot {
 			}
 		}
 	}
-
 
 	void Shot::Disable() {
 		m_sprite.setColor(color::Transparent(m_sprite.getColor()));

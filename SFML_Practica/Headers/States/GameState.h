@@ -11,7 +11,7 @@ namespace state {
 	private:
 		IState* m_pNextState;
 		sf::RenderWindow* m_pWindow;
-		player::Player m_player;
+		player::Player* m_player;
 		controller::GameController m_gameController;
 		virtual void StateLoop();
 		void CheckInput();

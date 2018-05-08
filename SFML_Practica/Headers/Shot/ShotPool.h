@@ -1,7 +1,6 @@
 #pragma once
 #include "Shot\Shot.h"
 #define AMMO_AMOUNT 3
-#define COLORS_AMOUNT 4
 
 namespace shotSys {
 	class ShotPool {
@@ -9,7 +8,7 @@ namespace shotSys {
 		ShotPool(const sf::View* pView);
 		~ShotPool();
 		std::array<sf::Sprite, AMMO_AMOUNT> GetDrawables();
-		void RequestShot(sf::Vector2f direction);
+		void RequestShot(const float angle, sf::Color color);
 		void Update(const std::array<sf::Sprite,0>& obstacles,
 			const float deltaTime);
 	private:
@@ -18,6 +17,5 @@ namespace shotSys {
 		bool OutOfBound(const Shot& shot);
 		const sf::View* m_pView;
 		std::array<Shot, AMMO_AMOUNT> m_shots;
-		std::array<sf::Color, COLORS_AMOUNT> m_colors;
 	};
 }

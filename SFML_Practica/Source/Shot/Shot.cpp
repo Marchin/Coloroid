@@ -8,7 +8,7 @@ namespace shotSys {
 		m_sprite.setTexture(m_texture);
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.setColor(color::Transparent(sf::Color::Blue));
-		m_speed = 1.f;
+		m_speed = 50.f;
 		m_direction = sf::Vector2f(0.f, 0.f);
 		m_beingFired = false;
 	}
@@ -29,7 +29,10 @@ namespace shotSys {
 		}
 	}
 
-	void Shot::SetDirection(sf::Vector2f direction) {
+	void Shot::SetDirection(const float angle) {
+		m_sprite.setRotation(angle);
+		sf::Vector2f direction = sf::Vector2f(
+			-std::sin(angle),-std::cos(angle));
 		m_direction = direction;
 	}
 

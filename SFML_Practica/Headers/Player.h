@@ -7,7 +7,7 @@ namespace player {
 	public:
 		Player(sf::Vector2f position, const sf::View* pView);
 		~Player();
-		sf::Sprite GetPlayer();
+		void SetColor(sf::Color color);
 		void Rotate(float angle,const float deltaTime = 1.f);
 		void Move(sf::Vector2f, float deltaTime = 1.f);
 		void Fire();

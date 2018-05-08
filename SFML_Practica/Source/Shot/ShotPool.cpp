@@ -3,10 +3,6 @@
 namespace shotSys {
 	ShotPool::ShotPool(const sf::View* pView) {
 		m_pView = pView;
-		m_colors[0] = sf::Color::Blue;
-		m_colors[1] = sf::Color::Red;
-		m_colors[2] = sf::Color::Green;
-		m_colors[3] = sf::Color::Yellow;
 	}
 
 	ShotPool::~ShotPool() {
@@ -20,22 +16,22 @@ namespace shotSys {
 		return shotSprites;
 	}
 
-	void ShotPool::RequestShot(sf::Vector2f direction) {
+	void ShotPool::RequestShot(const float angle, sf::Color color) {
 		Shot* shot = nullptr;
 		if (IsShotAvailable(shot)) {
 			ResetShotPosition(*shot);
-			shot->SetColor(m_colors[rand() % COLORS_AMOUNT]);
-			shot->SetDirection(direction);
+			shot->SetColor(color);
+			shot->SetDirection(angle);
 			shot->Enable();
 		}
 	}
 
 	void ShotPool::Update(const std::array<sf::Sprite,0>& obstacles,
 		const float deltaTime) {
-		for (Shot shot : m_shots) {
-			shot.Update(obstacles, deltaTime);
-			if (OutOfBound(shot)) {
-				shot.Disable();
+		for (int i = 0; i < m_shots.size(); i++) {
+			m_shots[i].Update(obstacles, deltaTime);
+			if (OutOfBound(m_shots[i])) {
+				m_shots[i].Disable();
 			}
 		}
 	}

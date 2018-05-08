@@ -9,7 +9,7 @@ namespace shotSys {
 	public:
 		Shot();
 		void Update(const std::array<sf::Sprite,0>& obstacles, const float deltaTime);
-		void SetDirection(sf::Vector2f direction);
+		void SetDirection(const float angle);
 		sf::Color GetColor() const;
 		void SetColor(sf::Color color);
 		bool IsAvailable();

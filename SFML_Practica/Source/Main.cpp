@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "Controllers\GameController.h"
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(512, 480), "SFML works!");
@@ -10,23 +11,42 @@ int main() {
 	sf::Clock clock;
 	sf::Time elapsed;
 	std::array<sf::Sprite, 0> spriteVec;
-	/*sf::Sprite sprite;
-	spriteVec.push_back(sprite);*/
+	controller::GameController gameController;
 
 	while (window.isOpen()) {
 		sf::Event event;
 		elapsed = clock.restart();
-		player.GetPlayer().setPosition(sf::Vector2f(100.f, 100.f));
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+			window.close();
+		}
+
+		gameController.UpdateKeys();
+		if (gameController.RotateLeft()) {
+			player.Rotate(-90.f, elapsed.asSeconds());
+		}
+		if (gameController.RotateRight()) {
 			player.Rotate(90.f, elapsed.asSeconds());
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		if (gameController.Fire()) {
 			player.Fire();
 		}
+		if (gameController.ColorizeBlue()) {
+			player.SetColor(sf::Color::Blue);
+		}
+		if (gameController.ColorizeRed()) {
+			player.SetColor(sf::Color::Red);
+		}
+		if (gameController.ColorizeGreen()) {
+			player.SetColor(sf::Color::Green);
+		}
+		if (gameController.ColorizeYellow()) {
+			player.SetColor(sf::Color::Yellow);
+		}
+
 		player.UpdateShots(spriteVec, elapsed.asSeconds());
 
 		window.clear();

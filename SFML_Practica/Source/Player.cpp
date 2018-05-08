@@ -8,6 +8,7 @@ namespace player {
 		m_sprite.setTexture(m_texture);
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.move(position);
+		m_sprite.setColor(sf::Color::Blue);
 		m_pView = pView;
 		m_ammo = new shotSys::ShotPool(m_pView);
 	}
@@ -16,8 +17,8 @@ namespace player {
 		delete m_ammo;
 	}
 
-	sf::Sprite Player::GetPlayer() {
-		return m_sprite;
+	void Player::SetColor(sf::Color color) {
+		m_sprite.setColor(color);
 	}
 
 	void Player::Rotate(float angle, const float deltaTime) {
@@ -29,11 +30,7 @@ namespace player {
 	}
 
 	void Player::Fire() {
-		sf::Vector2f shotDirection(
-			std::sin(m_sprite.getRotation()),
-			std::cos(m_sprite.getRotation())
-			);
-		m_ammo->RequestShot(shotDirection);
+		m_ammo->RequestShot(m_sprite.getRotation(), m_sprite.getColor());
 	}
 
 	void Player::UpdateShots(const std::array<sf::Sprite, 0>& obstacles,

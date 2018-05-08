@@ -1,6 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Controllers\GameController.h"
+#ifdef _DEBUG
+#include "vld.h"
+#endif // _DEBUG
+
 
 int main() {
 	sf::RenderWindow window(sf::VideoMode(512, 480), "SFML works!");

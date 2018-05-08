@@ -76,11 +76,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Visual Leak Detector\include;$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\Visual Leak Detector\lib\Win32;$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PreBuildEvent>
@@ -90,6 +90,9 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-graphics-d-2.dll" "$(OutDir)"
 COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-system-d-2.dll" "$(OutDir)"
 COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-d-2.dll" "$(OutDir)"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>COPY "$(SolutionDir)Libraries\Visual Leak Detector\bin\Win32" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -97,11 +100,11 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2\bin\sfml-window-d-2.dll" "$(OutDir)"</C
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Visual Leak Detector\include;$(SolutionDir)SFML_Practica\Headers;$(SolutionDir)Libraries\SFML-2.4.2 (x64)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Libraries\Visual Leak Detector\lib\Win64;$(SolutionDir)Libraries\SFML-2.4.2 %28x64%29\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-main-d.lib;vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PreBuildEvent>
@@ -111,6 +114,9 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-graphics-d-2.dll" "$(Out
 COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-system-d-2.dll" "$(OutDir)"
 COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-d-2.dll" "$(OutDir)"</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>COPY "$(SolutionDir)Libraries\Visual Leak Detector\bin\Win64" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

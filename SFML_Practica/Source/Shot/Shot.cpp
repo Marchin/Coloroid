@@ -29,10 +29,10 @@ namespace shotSys {
 		}
 	}
 
-	void Shot::SetDirection(const float angle) {
+	void Shot::SetDirection(const float& angle) {
 		m_sprite.setRotation(angle);
 		sf::Vector2f direction = sf::Vector2f(
-			-std::sin(angle),-std::cos(angle));
+			std::sin(angle*PI/180.f),-std::cos(angle*PI / 180.f));
 		m_direction = direction;
 	}
 

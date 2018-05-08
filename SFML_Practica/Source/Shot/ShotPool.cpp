@@ -16,7 +16,7 @@ namespace shotSys {
 		return shotSprites;
 	}
 
-	void ShotPool::RequestShot(const float angle, sf::Color color) {
+	void ShotPool::RequestShot(const float& angle, sf::Color color) {
 		Shot* shot = nullptr;
 		if (IsShotAvailable(shot)) {
 			ResetShotPosition(*shot);

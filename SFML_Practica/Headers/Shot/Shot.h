@@ -3,13 +3,14 @@
 #include <array>
 #include "ColorExtension.h"
 #include "Collision.h"
+#define PI 3.14159265
 
 namespace shotSys {
 	class Shot {
 	public:
 		Shot();
 		void Update(const std::array<sf::Sprite,0>& obstacles, const float deltaTime);
-		void SetDirection(const float angle);
+		void SetDirection(const float& angle);
 		sf::Color GetColor() const;
 		void SetColor(sf::Color color);
 		bool IsAvailable();

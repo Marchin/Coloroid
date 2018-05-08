@@ -56,7 +56,7 @@ namespace shotSys {
 		m_beingFired = true;
 	}
 
-	void Shot::SetPosition(sf::Vector2f position) {
+	void Shot::SetPosition(const sf::Vector2f& position) {
 		m_sprite.setPosition(position);
 	}
 
@@ -72,7 +72,7 @@ namespace shotSys {
 		return m_sprite.getColor();
 	}
 
-	void Shot::SetColor(sf::Color color) {
+	void Shot::SetColor(const sf::Color& color) {
 		m_sprite.setColor(color);
 	}
 

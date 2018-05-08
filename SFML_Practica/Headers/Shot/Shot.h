@@ -13,11 +13,11 @@ namespace shotSys {
 			const float& deltaTime);
 		void SetDirection(const float& angle);
 		sf::Color GetColor() const;
-		void SetColor(sf::Color color);
+		void SetColor(const sf::Color& color);
 		bool IsAvailable();
 		sf::Vector2f GetPosition() const;
 		sf::Sprite GetDrawable() const;
-		void SetPosition(sf::Vector2f position);
+		void SetPosition(const sf::Vector2f& position);
 		void Enable();
 		void Disable();
 		float Width() const;

@@ -8,7 +8,7 @@ namespace shotSys {
 		m_sprite.setTexture(m_texture);
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.setColor(color::Transparent(sf::Color::Blue));
-		m_speed = 50.f;
+		m_speed = 100.f;
 		m_direction = sf::Vector2f(0.f, 0.f);
 		m_beingFired = false;
 	}
@@ -22,7 +22,7 @@ namespace shotSys {
 	}
 
 	void Shot::Update(const std::array<sf::Sprite,0>& obstacles,
-							const float deltaTime) {
+							const float& deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
 			CheckCollision(obstacles);
@@ -32,7 +32,7 @@ namespace shotSys {
 	void Shot::SetDirection(const float& angle) {
 		m_sprite.setRotation(angle);
 		sf::Vector2f direction = sf::Vector2f(
-			std::sin(angle*PI/180.f),-std::cos(angle*PI / 180.f));
+			std::sin(angle * PI/180.f),-std::cos(angle * PI/180.f));
 		m_direction = direction;
 	}
 

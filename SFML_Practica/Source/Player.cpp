@@ -1,7 +1,7 @@
 #include "Player.h"
 
 namespace player {
-	Player::Player(sf::Vector2f position, const sf::View* pView) {
+	Player::Player(const sf::Vector2f& position, const sf::View* pView) {
 		if (!m_texture.loadFromFile("Resources\\Nave.png")) {
 			printf("texture error");
 		}
@@ -17,16 +17,12 @@ namespace player {
 		delete m_ammo;
 	}
 
-	void Player::SetColor(sf::Color color) {
+	void Player::SetColor(const sf::Color& color) {
 		m_sprite.setColor(color);
 	}
 
-	void Player::Rotate(float angle, const float deltaTime) {
+	void Player::Rotate(const float& angle, const float& deltaTime) {
 		m_sprite.rotate(angle * deltaTime);
-	}
-
-	void Player::Move(sf::Vector2f movement, const float deltaTime) {
-		m_sprite.move(movement * deltaTime);
 	}
 
 	void Player::Fire() {
@@ -34,7 +30,7 @@ namespace player {
 	}
 
 	void Player::UpdateShots(const std::array<sf::Sprite, 0>& obstacles,
-		const float deltaTime) {
+		const float& deltaTime) {
 
 		m_ammo->Update(obstacles, deltaTime);
 		shotSprites = m_ammo->GetDrawables();

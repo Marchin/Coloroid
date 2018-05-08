@@ -5,15 +5,14 @@
 namespace player {
 	class Player : public sf::Drawable{
 	public:
-		Player(sf::Vector2f position, const sf::View* pView);
+		Player(const sf::Vector2f& position, const sf::View* pView);
 		~Player();
-		void SetColor(sf::Color color);
-		void Rotate(float angle,const float deltaTime = 1.f);
-		void Move(sf::Vector2f, float deltaTime = 1.f);
+		void SetColor(const sf::Color& color);
+		void Rotate(const float& angle,const float& deltaTime = 1.f);
 		void Fire();
 		void UpdateShots(
 			const std::array<sf::Sprite, 0>& obstacles,
-			const float deltaTime = 1.f);
+			const float& deltaTime = 1.f);
 		float Width() const;
 		float Height() const;
 	private:

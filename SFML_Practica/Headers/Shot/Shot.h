@@ -9,7 +9,8 @@ namespace shotSys {
 	class Shot {
 	public:
 		Shot();
-		void Update(const std::array<sf::Sprite,0>& obstacles, const float deltaTime);
+		void Update(const std::array<sf::Sprite,0>& obstacles,
+			const float& deltaTime);
 		void SetDirection(const float& angle);
 		sf::Color GetColor() const;
 		void SetColor(sf::Color color);

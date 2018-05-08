@@ -1,6 +1,7 @@
 #pragma once
 #include "IController.h"
-#include <vector>
+#include <array>
+#define INPUT_AMMOUNT 7
 #define FIRE 0
 #define ROTATE_LEFT 1
 #define ROTATE_RIGHT 2
@@ -22,6 +23,6 @@ namespace controller {
 		bool ColorizeGreen();
 		bool ColorizeYellow();
 	private:
-		std::vector<input::Input> keys;
+		std::array<input::Input, INPUT_AMMOUNT> m_keys;
 	};
 }

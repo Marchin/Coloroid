@@ -8,7 +8,7 @@ namespace input {
 		bool IsPressed();
 		bool PressDown();
 		bool PressUp();
-		Input(sf::Keyboard::Key key) : m_key(key),
+		Input(sf::Keyboard::Key key = sf::Keyboard::F13) : m_key(key),
 			m_currState(false), m_prevState(false) {};
 	private:
 		sf::Keyboard::Key m_key;

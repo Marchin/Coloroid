@@ -3,47 +3,47 @@
 namespace controller {
 	GameController::GameController() {
 		using namespace input;
-		keys.push_back(Input(sf::Keyboard::Space));
-		keys.push_back(Input(sf::Keyboard::Left));
-		keys.push_back(Input(sf::Keyboard::Right));
-		keys.push_back(Input(sf::Keyboard::A));
-		keys.push_back(Input(sf::Keyboard::S));
-		keys.push_back(Input(sf::Keyboard::D));
-		keys.push_back(Input(sf::Keyboard::F));
+		m_keys[FIRE] = Input(sf::Keyboard::Space);
+		m_keys[ROTATE_LEFT] = Input(sf::Keyboard::Left);
+		m_keys[ROTATE_RIGHT] = Input(sf::Keyboard::Right);
+		m_keys[COLORIZE_BLUE] = Input(sf::Keyboard::A);
+		m_keys[COLORIZE_RED] = Input(sf::Keyboard::S);
+		m_keys[COLORIZE_GREEN] = Input(sf::Keyboard::D);
+		m_keys[COLORIZE_YELLOW] = Input(sf::Keyboard::F);
 	}
 
 	void GameController::UpdateKeys() {
 		using namespace input;
-		for (int i = 0; i < keys.size(); i++) {
-			keys[i].Update();
+		for (int i = 0; i < m_keys.size(); i++) {
+			m_keys[i].Update();
 		}
 	}
 
 	bool GameController::Fire() {
-		return keys[FIRE].PressDown();
+		return m_keys[FIRE].PressDown();
 	}
 
 	bool GameController::RotateLeft() {
-		return keys[ROTATE_LEFT].IsPressed();
+		return m_keys[ROTATE_LEFT].IsPressed();
 	}
 
 	bool GameController::RotateRight() {
-		return keys[ROTATE_RIGHT].IsPressed();
+		return m_keys[ROTATE_RIGHT].IsPressed();
 	}
 
 	bool GameController::ColorizeBlue() {
-		return keys[COLORIZE_BLUE].PressDown();
+		return m_keys[COLORIZE_BLUE].PressDown();
 	}
 
 	bool GameController::ColorizeRed() {
-		return keys[COLORIZE_RED].PressDown();
+		return m_keys[COLORIZE_RED].PressDown();
 	}
 
 	bool GameController::ColorizeGreen() {
-		return keys[COLORIZE_GREEN].PressDown();
+		return m_keys[COLORIZE_GREEN].PressDown();
 	}
 
 	bool GameController::ColorizeYellow() {
-		return keys[COLORIZE_YELLOW].PressDown();
+		return m_keys[COLORIZE_YELLOW].PressDown();
 	}
 }

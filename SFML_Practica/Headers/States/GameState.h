@@ -1,4 +1,3 @@
-#pragma once
 #include "IState.h"
 #include "Player.h"
 #include "Controllers\GameController.h"

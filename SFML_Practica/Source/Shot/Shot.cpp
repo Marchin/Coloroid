@@ -76,7 +76,7 @@ namespace shotSys {
 		m_sprite.setColor(color);
 	}
 
-	bool Shot::IsAvailable() {
+	bool Shot::IsAvailable() const{
 		return !m_beingFired;
 	}
 

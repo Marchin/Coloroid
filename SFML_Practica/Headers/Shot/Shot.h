@@ -1,4 +1,3 @@
-#pragma once
 #include <SFML\Graphics.hpp>
 #include <array>
 #include "ColorExtension.h"
@@ -14,7 +13,7 @@ namespace shotSys {
 		void SetDirection(const float& angle);
 		sf::Color GetColor() const;
 		void SetColor(const sf::Color& color);
-		bool IsAvailable();
+		bool IsAvailable() const;
 		sf::Vector2f GetPosition() const;
 		sf::Sprite GetDrawable() const;
 		void SetPosition(const sf::Vector2f& position);

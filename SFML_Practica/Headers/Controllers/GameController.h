@@ -1,4 +1,3 @@
-#pragma once
 #include "IController.h"
 #include <array>
 #define INPUT_AMMOUNT 7

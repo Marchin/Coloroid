@@ -197,6 +197,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClInclude Include="Headers\Shot\ShotPool.h" />
     <ClInclude Include="Headers\States\GameState.h" />
     <ClInclude Include="Headers\States\IState.h" />
+    <ClInclude Include="Source\Asteroid\Asteroid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -30,6 +30,7 @@ namespace shotSys {
 
 	void ShotPool::Update(const std::array<sf::Sprite,0>& obstacles,
 		const float& deltaTime) {
+
 		for (int i = 0; i < m_shots.size(); i++) {
 			m_shots[i].Update(obstacles, deltaTime);
 			if (OutOfBound(m_shots[i])) {

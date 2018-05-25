@@ -1,4 +1,3 @@
-#pragma once
 #include "Shot\Shot.h"
 #define AMMO_AMOUNT 3
 

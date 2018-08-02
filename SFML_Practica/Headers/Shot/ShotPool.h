@@ -1,4 +1,4 @@
-#include "Shot\Shot.h"
+#include "Shot/Shot.h"
 #define AMMO_AMOUNT 3
 
 namespace shotSys {
@@ -11,7 +11,7 @@ namespace shotSys {
 		void Update(const std::array<sf::Sprite,0>& obstacles,
 			const float& deltaTime);
 	private:
-		bool IsShotAvailable(Shot*& shotRequester);
+		bool IsShotAvailable(Shot*& pShotRequester);
 		void ResetShotPosition(Shot& shot);
 		bool OutOfBound(const Shot& shot);
 		const sf::View* m_pView;

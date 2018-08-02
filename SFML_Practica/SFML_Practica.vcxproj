@@ -181,7 +181,6 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClCompile Include="Source\Shot\Shot.cpp" />
     <ClCompile Include="Source\Shot\ShotPool.cpp" />
     <ClCompile Include="Source\States\GameState.cpp" />
-    <ClCompile Include="Tests\Asteroid\T_Asteroid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Asteroid.png" />
@@ -200,6 +199,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClInclude Include="Headers\Shot\ShotPool.h" />
     <ClInclude Include="Headers\States\GameState.h" />
     <ClInclude Include="Headers\States\IState.h" />
+    <ClInclude Include="Headers\States\StateController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

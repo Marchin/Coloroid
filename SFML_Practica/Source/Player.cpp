@@ -10,11 +10,11 @@ namespace player {
 		m_sprite.move(position);
 		m_sprite.setColor(sf::Color::Blue);
 		m_pView = pView;
-		m_ammo = new shotSys::ShotPool(m_pView);
+		m_pAammo = new shotSys::ShotPool(m_pView);
 	}
 
 	Player::~Player() {
-		delete m_ammo;
+		delete m_pAammo;
 	}
 
 	void Player::SetColor(const sf::Color& color) {
@@ -26,14 +26,14 @@ namespace player {
 	}
 
 	void Player::Fire() {
-		m_ammo->RequestShot(m_sprite.getRotation(), m_sprite.getColor());
+		m_pAammo->RequestShot(m_sprite.getRotation(), m_sprite.getColor());
 	}
 
 	void Player::UpdateShots(const std::array<sf::Sprite, 0>& obstacles,
 		const float& deltaTime) {
 
-		m_ammo->Update(obstacles, deltaTime);
-		shotSprites = m_ammo->GetDrawables();
+		m_pAammo->Update(obstacles, deltaTime);
+		shotSprites = m_pAammo->GetDrawables();
 	}
 
 	float Player::Width() const{

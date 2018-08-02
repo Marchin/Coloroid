@@ -1,6 +1,6 @@
 #include "Controllers\GameController.h"
 
-namespace controller {
+namespace input {
 	GameController::GameController() {
 		using namespace input;
 		m_keys[FIRE] = Input(sf::Keyboard::Space);
@@ -13,7 +13,6 @@ namespace controller {
 	}
 
 	void GameController::UpdateKeys() {
-		using namespace input;
 		for (int i = 0; i < m_keys.size(); i++) {
 			m_keys[i].Update();
 		}

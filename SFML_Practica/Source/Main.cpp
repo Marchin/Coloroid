@@ -15,7 +15,7 @@ int main() {
 	sf::Clock clock;
 	sf::Time elapsed;
 	std::array<sf::Sprite, 0> spriteVec;
-	controller::GameController gameController;
+	input::GameController gameController;
 
 	while (window.isOpen()) {
 		sf::Event event;

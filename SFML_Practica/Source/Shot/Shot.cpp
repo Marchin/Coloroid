@@ -64,10 +64,6 @@ namespace shotSys {
 		return m_sprite.getPosition();
 	}
 
-	sf::Sprite Shot::GetDrawable() const {
-		return m_sprite;
-	}
-
 	sf::Color Shot::GetColor() const{
 		return m_sprite.getColor();
 	}

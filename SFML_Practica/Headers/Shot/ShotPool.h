@@ -8,7 +8,6 @@ namespace shotSys {
 	public:
 		ShotPool(const sf::View* pView, unsigned int amount);
 		~ShotPool() {}
-		std::vector<sf::Sprite> GetDrawables();
 		void RequestShot(const float& angle, const sf::Color& color);
 		void Update(const std::vector<sf::Sprite>& obstacles,
 			const float& deltaTime);

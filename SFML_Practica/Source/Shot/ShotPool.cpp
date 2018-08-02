@@ -7,15 +7,6 @@ namespace shotSys {
 		m_shots = std::vector<Shot>(amount);
 	}
 
-	std::vector<sf::Sprite> ShotPool::GetDrawables() {
-		size_t amount = m_shots.size();
-		std::vector<sf::Sprite> shotSprites(amount);
-		for (int i = 0; i < amount; i++) {
-			shotSprites[i] = m_shots[i].GetDrawable();
-		}
-		return shotSprites;
-	}
-
 	void ShotPool::RequestShot(const float& angle, 
 		const sf::Color& color) {
 
@@ -31,7 +22,7 @@ namespace shotSys {
 	void ShotPool::Update(const std::vector<sf::Sprite>& obstacles,
 		const float& deltaTime) {
 
-		for (int i = 0; i < m_shots.size(); i++) {
+		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			m_shots[i].Update(obstacles, deltaTime);
 			if (OutOfBound(m_shots[i])) {
 				m_shots[i].Disable();
@@ -49,7 +40,7 @@ namespace shotSys {
 
 	bool ShotPool::IsShotAvailable(Shot*& pShotRequester) {
 		bool isAvailable = false;
-		for (int i = 0; i < m_shots.size(); i++) {
+		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			if (m_shots[i].IsAvailable()) {
 				pShotRequester = &m_shots[i];
 				isAvailable = true;

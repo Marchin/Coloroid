@@ -18,7 +18,6 @@ namespace shotSys {
 		bool IsAvailable() const;
 		void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 		sf::Vector2f GetPosition() const;
-		sf::Sprite GetDrawable() const;
 		void SetPosition(const sf::Vector2f& position);
 		void Enable();
 		void Disable();

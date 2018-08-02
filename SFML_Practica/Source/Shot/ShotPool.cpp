@@ -32,11 +32,11 @@ namespace shotSys {
 		}
 	}
 
-	bool ShotPool::IsShotAvailable(Shot*& shotRequester) {
+	bool ShotPool::IsShotAvailable(Shot*& pShotRequester) {
 		bool isAvailable = false;
 		for (int i = 0; i < m_shots.size(); i++) {
 			if (m_shots[i].IsAvailable()) {
-				shotRequester = &m_shots[i];
+				pShotRequester = &m_shots[i];
 				isAvailable = true;
 				break;
 			}

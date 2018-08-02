@@ -16,6 +16,7 @@ namespace shotSys {
 		sf::Color GetColor() const;
 		void SetColor(const sf::Color& color);
 		bool IsAvailable() const;
+		void draw(sf::RenderTarget & target, sf::RenderStates states) const;
 		sf::Vector2f GetPosition() const;
 		sf::Sprite GetDrawable() const;
 		void SetPosition(const sf::Vector2f& position);

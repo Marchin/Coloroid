@@ -39,6 +39,14 @@ namespace shotSys {
 		}
 	}
 
+	void ShotPool::draw(sf::RenderTarget & target,
+		sf::RenderStates states) const {
+;
+		for (Shot shot : m_shots) {
+			shot.draw(target, states);
+		}
+	}
+
 	bool ShotPool::IsShotAvailable(Shot*& pShotRequester) {
 		bool isAvailable = false;
 		for (int i = 0; i < m_shots.size(); i++) {

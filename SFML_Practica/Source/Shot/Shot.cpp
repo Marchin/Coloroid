@@ -80,4 +80,9 @@ namespace shotSys {
 		return !m_beingFired;
 	}
 
+	void Shot::draw(sf::RenderTarget & target,
+		sf::RenderStates states) const {
+
+		target.draw(m_sprite, states);
+	}
 }

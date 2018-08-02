@@ -35,7 +35,6 @@ namespace player {
 		const float& deltaTime) {
 
 		m_pAammo->Update(obstacles, deltaTime);
-		shotSprites = m_pAammo->GetDrawables();
 	}
 
 	float Player::Width() const{
@@ -50,8 +49,6 @@ namespace player {
 		sf::RenderStates states) const {
 
 		target.draw(m_sprite, states);
-		for (sf::Sprite shotSprite : shotSprites) {
-			target.draw(shotSprite, states);
-		}
+		m_pAammo->draw(target, states);
 	}
 }

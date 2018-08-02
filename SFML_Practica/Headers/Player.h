@@ -25,7 +25,6 @@ namespace player {
 		sf::Sprite m_sprite;
 		sf::Color m_color;
 		const sf::View* m_pView;
-		std::vector<sf::Sprite> shotSprites;
 	};
 }
 #endif // !PLAYER_H

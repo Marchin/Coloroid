@@ -1,3 +1,6 @@
+#ifndef GAME_STATE_H
+#define GAME_STATE_H
+
 #include "IState.h"
 #include "Player.h"
 #include "Controllers\GameController.h"
@@ -16,3 +19,4 @@ namespace state {
 		void CheckInput();
 	};
 }
+#endif // !GAME_STATE_H

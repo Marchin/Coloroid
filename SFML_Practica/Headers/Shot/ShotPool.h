@@ -1,3 +1,6 @@
+#ifndef SHOT_POOL_H
+#define SHOOT_POOL_H
+
 #include "Shot/Shot.h"
 #define AMMO_AMOUNT 3
 
@@ -18,3 +21,5 @@ namespace shotSys {
 		std::array<Shot, AMMO_AMOUNT> m_shots;
 	};
 }
+
+#endif // !SHOT_POOL_H

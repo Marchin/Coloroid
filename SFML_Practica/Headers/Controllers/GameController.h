@@ -1,3 +1,6 @@
+#ifndef GAME_CONTROLLER_H
+#define GAME_CONTROLLER_H
+
 #include "IController.h"
 #include <array>
 #define INPUT_AMMOUNT 7
@@ -25,3 +28,4 @@ namespace input {
 		std::array<input::Input, INPUT_AMMOUNT> m_keys;
 	};
 }
+#endif // !GAME_CONTROLLER_H

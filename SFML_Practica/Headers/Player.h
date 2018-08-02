@@ -1,5 +1,8 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <SFML/Graphics.hpp>
-#include "Shot\ShotPool.h"
+#include "Shot/ShotPool.h"
 
 namespace player {
 	class Player : public sf::Drawable{
@@ -25,3 +28,4 @@ namespace player {
 		std::array<sf::Sprite, AMMO_AMOUNT> shotSprites;
 	};
 }
+#endif // !PLAYER_H

@@ -1,4 +1,7 @@
-#include <SFML\Graphics.hpp>
+#ifndef SHOT_H
+#define SHOT_H
+
+#include <SFML/Graphics.hpp>
 #include <array>
 #include "ColorExtension.h"
 #include "Collision.h"
@@ -30,3 +33,4 @@ namespace shotSys {
 		sf::Texture m_texture;
 	};
 }
+#endif // !SHOT_H

@@ -1,4 +1,7 @@
-#include <SFML\Window.hpp>
+#ifndef ICONTROLLER_H
+#define ICONTROLLER_H
+
+#include <SFML/Window.hpp>
 #include "Input.h"
 
 namespace input {
@@ -7,3 +10,4 @@ namespace input {
 		virtual void UpdateKeys() = 0;
 	};
 }
+#endif // !ICONTROLLER_H

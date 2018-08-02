@@ -1,4 +1,7 @@
-#include <SFML\Graphics.hpp>
+#ifndef ASTEROID_H
+#define ASTEROID_H
+
+#include <SFML/Graphics.hpp>
 #include <array>
 #include "ColorExtension.h"
 #define PI 3.14159265
@@ -26,3 +29,4 @@ namespace asteroidSys {
 		sf::Sprite m_sprite;
 	};
 }
+#endif // !ASTEROID_H

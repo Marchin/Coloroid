@@ -1,4 +1,7 @@
-#include <SFML\Window.hpp>
+#ifndef INPUT_H
+#define INPUT_H
+
+#include <SFML/Window.hpp>
 
 namespace input {
 	class Input {
@@ -15,3 +18,4 @@ namespace input {
 		bool m_prevState;
 	};
 }
+#endif // !INPUT_H

@@ -7,8 +7,8 @@
 namespace shotSys {
 	class ShotPool {
 	public:
-		ShotPool(const sf::View* pView);
-		~ShotPool();
+		ShotPool(const sf::View* pView) : m_pView(pView) {}
+		~ShotPool() {}
 		std::array<sf::Sprite, AMMO_AMOUNT> GetDrawables();
 		void RequestShot(const float& angle, const sf::Color& color);
 		void Update(const std::array<sf::Sprite,0>& obstacles,

@@ -1,13 +1,6 @@
-#include "Shot\ShotPool.h"
+#include "Shot/ShotPool.h"
 
 namespace shotSys {
-	ShotPool::ShotPool(const sf::View* pView) {
-		m_pView = pView;
-	}
-
-	ShotPool::~ShotPool() {
-	}
-
 	std::array<sf::Sprite, AMMO_AMOUNT> ShotPool::GetDrawables() {
 		std::array<sf::Sprite, AMMO_AMOUNT> shotSprites;
 		for (int i = 0; i < m_shots.size(); i++) {

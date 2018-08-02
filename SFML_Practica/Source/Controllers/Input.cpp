@@ -1,4 +1,4 @@
-#include "Controllers\Input.h"
+#include "Controllers/Input.h"
 
 namespace input {
 	void Input::Update() {

@@ -1,8 +1,8 @@
 #include "Asteroid/Asteroid.h"
 
-asteroidSys::Asteroid::Asteroid() {
-	m_speed = 0.f;
-	m_direction = sf::Vector2f(0.f, 0.f);
+asteroidSys::Asteroid::Asteroid()
+	: m_speed(0.f), m_direction(sf::Vector2f(0.f, 0.f)) {
+
 	if (!m_texture.loadFromFile("Resources\\Asteroid.png")) {
 		printf("texture error");
 	}

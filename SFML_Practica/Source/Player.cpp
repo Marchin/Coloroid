@@ -1,7 +1,9 @@
 #include "Player.h"
 
 namespace player {
-	Player::Player(const sf::Vector2f& position, const sf::View* pView) {
+	Player::Player(const sf::Vector2f& position, const sf::View* pView) 
+		: m_pView(pView) {
+
 		if (!m_texture.loadFromFile("Resources\\Nave.png")) {
 			printf("texture error");
 		}
@@ -9,7 +11,6 @@ namespace player {
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.move(position);
 		m_sprite.setColor(sf::Color::Blue);
-		m_pView = pView;
 		m_pAammo = new shotSys::ShotPool(m_pView);
 	}
 

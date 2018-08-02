@@ -1,16 +1,16 @@
 #include "Shot\Shot.h"
 
 namespace shotSys {
-	Shot::Shot() {
+	Shot::Shot()
+		: m_speed(100.f), m_direction(sf::Vector2f(0.f, 0.f)),
+		m_beingFired(false) {
+
 		if (!m_texture.loadFromFile("Resources\\Shot.png")) {
 			printf("texture error");
 		}
 		m_sprite.setTexture(m_texture);
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.setColor(color::Transparent(sf::Color::Blue));
-		m_speed = 100.f;
-		m_direction = sf::Vector2f(0.f, 0.f);
-		m_beingFired = false;
 	}
 
 	float Shot::Width() const{

@@ -17,7 +17,7 @@ namespace player {
 	private:
 		virtual void draw(sf::RenderTarget& target, 
 						  sf::RenderStates states) const;
-		shotSys::ShotPool* m_ammo;
+		shotSys::ShotPool* m_pAammo;
 		sf::Texture m_texture;
 		sf::Sprite m_sprite;
 		sf::Color m_color;

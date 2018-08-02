@@ -5,7 +5,7 @@ namespace shotSys {
 		: m_speed(100.f), m_direction(sf::Vector2f(0.f, 0.f)),
 		m_beingFired(false) {
 
-		if (!m_texture.loadFromFile("Resources\\Shot.png")) {
+		if (!m_texture.loadFromFile("../SFML_Practica/Resources/Shot.png")) {
 			printf("texture error");
 		}
 		m_sprite.setTexture(m_texture);

@@ -2,7 +2,6 @@
 #define ASTEROID_H
 
 #include <SFML/Graphics.hpp>
-#include <array>
 #include "ColorExtension.h"
 #define PI 3.14159265
 

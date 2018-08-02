@@ -13,7 +13,7 @@ namespace player {
 		void Rotate(const float& angle,const float& deltaTime = 1.f);
 		void Fire();
 		void UpdateShots(
-			const std::array<sf::Sprite, 0>& obstacles,
+			const std::vector<sf::Sprite>& obstacles,
 			const float& deltaTime = 1.f);
 		float Width() const;
 		float Height() const;
@@ -25,7 +25,7 @@ namespace player {
 		sf::Sprite m_sprite;
 		sf::Color m_color;
 		const sf::View* m_pView;
-		std::array<sf::Sprite, AMMO_AMOUNT> shotSprites;
+		std::vector<sf::Sprite> shotSprites;
 	};
 }
 #endif // !PLAYER_H

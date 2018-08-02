@@ -21,7 +21,7 @@ namespace shotSys {
 		return m_sprite.getLocalBounds().width;
 	}
 
-	void Shot::Update(const std::array<sf::Sprite,0>& obstacles,
+	void Shot::Update(const std::vector<sf::Sprite>& obstacles,
 							const float& deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
@@ -36,7 +36,7 @@ namespace shotSys {
 		m_direction = direction;
 	}
 
-	void Shot::CheckCollision(const std::array<sf::Sprite,0>& obstacles) {
+	void Shot::CheckCollision(const std::vector<sf::Sprite>& obstacles) {
 		for (int i = 0; obstacles.size(); i++) {
 			if (Collision::CircleTest(m_sprite, obstacles[i])) {
 				if (m_sprite.getColor() == obstacles[i].getColor()) {

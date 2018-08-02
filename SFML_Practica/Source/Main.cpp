@@ -14,7 +14,7 @@ int main() {
 	player::Player player(screenCenter, &view);
 	sf::Clock clock;
 	sf::Time elapsed;
-	std::array<sf::Sprite, 0> spriteVec;
+	std::vector<sf::Sprite> asteroids;
 	input::GameController gameController;
 
 	while (window.isOpen()) {
@@ -51,7 +51,7 @@ int main() {
 			player.SetColor(sf::Color::Yellow);
 		}
 
-		player.UpdateShots(spriteVec, elapsed.asSeconds());
+		player.UpdateShots(asteroids, elapsed.asSeconds());
 
 		window.clear();
 		window.draw(player);

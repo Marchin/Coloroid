@@ -1,9 +1,16 @@
 #include "Shot/ShotPool.h"
 
 namespace shotSys {
-	std::array<sf::Sprite, AMMO_AMOUNT> ShotPool::GetDrawables() {
-		std::array<sf::Sprite, AMMO_AMOUNT> shotSprites;
-		for (int i = 0; i < m_shots.size(); i++) {
+	ShotPool::ShotPool(const sf::View* pView, unsigned int amount) 
+		: m_pView(pView) {
+	
+		m_shots = std::vector<Shot>(amount);
+	}
+
+	std::vector<sf::Sprite> ShotPool::GetDrawables() {
+		size_t amount = m_shots.size();
+		std::vector<sf::Sprite> shotSprites(amount);
+		for (int i = 0; i < amount; i++) {
 			shotSprites[i] = m_shots[i].GetDrawable();
 		}
 		return shotSprites;
@@ -21,7 +28,7 @@ namespace shotSys {
 		}
 	}
 
-	void ShotPool::Update(const std::array<sf::Sprite,0>& obstacles,
+	void ShotPool::Update(const std::vector<sf::Sprite>& obstacles,
 		const float& deltaTime) {
 
 		for (int i = 0; i < m_shots.size(); i++) {

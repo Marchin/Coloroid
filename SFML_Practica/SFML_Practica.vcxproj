@@ -191,6 +191,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClInclude Include="Headers\Asteroid\Asteroid.h" />
     <ClInclude Include="Headers\Collision.h" />
     <ClInclude Include="Headers\ColorExtension.h" />
+    <ClInclude Include="Headers\Constants.h" />
     <ClInclude Include="Headers\Controllers\GameController.h" />
     <ClInclude Include="Headers\Controllers\IController.h" />
     <ClInclude Include="Headers\Controllers\Input.h" />

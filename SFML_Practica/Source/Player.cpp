@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Constants.h"
 
 namespace player {
 	Player::Player(const sf::Vector2f& position, const sf::View* pView) 
@@ -11,7 +12,7 @@ namespace player {
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.move(position);
 		m_sprite.setColor(sf::Color::Blue);
-		m_pAammo = new shotSys::ShotPool(m_pView);
+		m_pAammo = new shotSys::ShotPool(m_pView, constant::LIFES);
 	}
 
 	Player::~Player() {
@@ -30,7 +31,7 @@ namespace player {
 		m_pAammo->RequestShot(m_sprite.getRotation(), m_sprite.getColor());
 	}
 
-	void Player::UpdateShots(const std::array<sf::Sprite, 0>& obstacles,
+	void Player::UpdateShots(const std::vector<sf::Sprite>& obstacles,
 		const float& deltaTime) {
 
 		m_pAammo->Update(obstacles, deltaTime);

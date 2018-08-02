@@ -2,7 +2,6 @@
 #define SHOT_H
 
 #include <SFML/Graphics.hpp>
-#include <array>
 #include "ColorExtension.h"
 #include "Collision.h"
 #define PI 3.14159265
@@ -11,7 +10,7 @@ namespace shotSys {
 	class Shot {
 	public:
 		Shot();
-		void Update(const std::array<sf::Sprite,0>& obstacles,
+		void Update(const std::vector<sf::Sprite>& obstacles,
 			const float& deltaTime);
 		void SetDirection(const float& angle);
 		sf::Color GetColor() const;
@@ -25,7 +24,7 @@ namespace shotSys {
 		float Width() const;
 		float Height() const;
 	private:
-		void CheckCollision(const std::array<sf::Sprite,0>& obstacles);
+		void CheckCollision(const std::vector<sf::Sprite>& obstacles);
 		float m_speed;
 		bool m_beingFired;
 		sf::Vector2f m_direction; 

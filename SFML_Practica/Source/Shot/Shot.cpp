@@ -18,7 +18,7 @@ namespace shotSys {
 	}
 
 	float Shot::Height() const{
-		return m_sprite.getLocalBounds().width;
+		return m_sprite.getLocalBounds().height;
 	}
 
 	void Shot::Update(const std::vector<sf::Sprite>& obstacles,

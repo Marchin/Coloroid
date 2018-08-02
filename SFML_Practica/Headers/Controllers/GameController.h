@@ -9,7 +9,7 @@
 #define COLORIZE_GREEN 5
 #define COLORIZE_YELLOW 6
 
-namespace controller {
+namespace input {
 	class GameController : public IController {
 	public:
 		virtual void UpdateKeys();

@@ -34,7 +34,7 @@ namespace player {
 	void Player::UpdateShots(const std::vector<sf::Sprite>& obstacles,
 		const float deltaTime) {
 
-		m_pAammo->Update(obstacles, deltaTime);
+		m_pAammo->Update(deltaTime, obstacles);
 	}
 
 	float Player::Width() const{

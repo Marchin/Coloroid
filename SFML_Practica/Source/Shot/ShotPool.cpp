@@ -7,7 +7,7 @@ namespace shotSys {
 		m_shots = std::vector<Shot>(amount);
 	}
 
-	void ShotPool::RequestShot(const float angle, 
+	bool ShotPool::RequestShot(const float angle, 
 		const sf::Color& color) {
 
 		Shot* shot = nullptr;
@@ -16,11 +16,14 @@ namespace shotSys {
 			shot->SetColor(color);
 			shot->SetDirection(angle);
 			shot->Enable();
+			return true;
+		} else {
+			return false;
 		}
 	}
 
-	void ShotPool::Update(const std::vector<sf::Sprite>& obstacles,
-		const float deltaTime) {
+	void ShotPool::Update(const float deltaTime,
+		const std::vector<sf::Sprite>& obstacles) {
 
 		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			m_shots[i].Update(obstacles, deltaTime);
@@ -30,7 +33,7 @@ namespace shotSys {
 		}
 	}
 
-	void ShotPool::draw(sf::RenderTarget & target,
+	void ShotPool::draw(sf::RenderTarget& target,
 		sf::RenderStates states) const {
 ;
 		for (Shot shot : m_shots) {

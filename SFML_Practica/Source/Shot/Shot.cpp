@@ -29,6 +29,10 @@ namespace shotSys {
 		}
 	}
 
+	float Shot::GetDirection() const {
+		return m_sprite.getRotation();
+	}
+
 	void Shot::SetDirection(const float& angle) {
 		m_sprite.setRotation(angle);
 		sf::Vector2f direction = sf::Vector2f(

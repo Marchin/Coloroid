@@ -12,6 +12,7 @@ namespace shotSys {
 		Shot();
 		void Update(const std::vector<sf::Sprite>& obstacles,
 			const float& deltaTime);
+		float GetDirection() const;
 		void SetDirection(const float& angle);
 		sf::Color GetColor() const;
 		void SetColor(const sf::Color& color);

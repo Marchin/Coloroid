@@ -11,7 +11,7 @@ asteroidSys::Asteroid::Asteroid()
 	m_sprite.setColor(color::Transparent(sf::Color::Blue));
 }
 
-void asteroidSys::Asteroid::Update(const float & deltaTime) {
+void asteroidSys::Asteroid::Update(const float deltaTime) {
 	if (m_available) {
 		m_sprite.move(m_direction * m_speed * deltaTime);
 	}
@@ -37,11 +37,11 @@ sf::Sprite asteroidSys::Asteroid::GetDrawable() const {
 	return m_sprite;
 }
 
-void asteroidSys::Asteroid::SetColor(const sf::Color & color) {
+void asteroidSys::Asteroid::SetColor(const sf::Color& color) {
 	m_sprite.setColor(color);
 }
 
-void asteroidSys::Asteroid::SetDirection(const float & angle) {
+void asteroidSys::Asteroid::SetDirection(const float angle) {
 	m_sprite.setRotation(angle);
 	sf::Vector2f direction = sf::Vector2f(
 		std::sin(angle * PI / 180.f), -std::cos(angle * PI / 180.f));

@@ -23,7 +23,7 @@ namespace player {
 		m_sprite.setColor(color);
 	}
 
-	void Player::Rotate(const float& angle, const float& deltaTime) {
+	void Player::Rotate(const float angle, const float deltaTime) {
 		m_sprite.rotate(angle * deltaTime);
 	}
 
@@ -32,7 +32,7 @@ namespace player {
 	}
 
 	void Player::UpdateShots(const std::vector<sf::Sprite>& obstacles,
-		const float& deltaTime) {
+		const float deltaTime) {
 
 		m_pAammo->Update(obstacles, deltaTime);
 	}

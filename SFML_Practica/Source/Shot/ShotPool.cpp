@@ -7,7 +7,7 @@ namespace shotSys {
 		m_shots = std::vector<Shot>(amount);
 	}
 
-	void ShotPool::RequestShot(const float& angle, 
+	void ShotPool::RequestShot(const float angle, 
 		const sf::Color& color) {
 
 		Shot* shot = nullptr;
@@ -20,7 +20,7 @@ namespace shotSys {
 	}
 
 	void ShotPool::Update(const std::vector<sf::Sprite>& obstacles,
-		const float& deltaTime) {
+		const float deltaTime) {
 
 		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			m_shots[i].Update(obstacles, deltaTime);

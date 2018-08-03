@@ -9,14 +9,14 @@ namespace asteroidSys {
 	class Asteroid {
 	public:
 		Asteroid();
-		void Update(const float& deltaTime);
+		void Update(const float deltaTime);
 		bool IsAvailable() const;
 		float Width() const;
 		float Height() const;
 		sf::Color GetColor() const;
 		sf::Sprite GetDrawable() const;
 		void SetColor(const sf::Color& color);
-		void SetDirection(const float& angle);
+		void SetDirection(const float angle);
 		void SetPosition(const sf::Vector2f& position);
 		void Enable();
 		void Disable();

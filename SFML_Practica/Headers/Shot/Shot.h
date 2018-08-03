@@ -11,13 +11,13 @@ namespace shotSys {
 	public:
 		Shot();
 		void Update(const std::vector<sf::Sprite>& obstacles,
-			const float& deltaTime);
+			const float deltaTime);
 		float GetDirection() const;
-		void SetDirection(const float& angle);
+		void SetDirection(const float angle);
 		sf::Color GetColor() const;
 		void SetColor(const sf::Color& color);
 		bool IsAvailable() const;
-		void draw(sf::RenderTarget & target, sf::RenderStates states) const;
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 		sf::Vector2f GetPosition() const;
 		void SetPosition(const sf::Vector2f& position);
 		void Enable();

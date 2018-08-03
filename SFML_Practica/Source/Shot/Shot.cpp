@@ -22,7 +22,7 @@ namespace shotSys {
 	}
 
 	void Shot::Update(const std::vector<sf::Sprite>& obstacles,
-							const float& deltaTime) {
+							const float deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
 			CheckCollision(obstacles);
@@ -33,7 +33,7 @@ namespace shotSys {
 		return m_sprite.getRotation();
 	}
 
-	void Shot::SetDirection(const float& angle) {
+	void Shot::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
 		sf::Vector2f direction = sf::Vector2f(
 			std::sin(angle * PI/180.f),-std::cos(angle * PI/180.f));

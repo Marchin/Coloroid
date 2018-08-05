@@ -7,7 +7,7 @@ asteroidSys::Asteroid::Asteroid()
 		printf("texture error");
 	}
 	m_sprite.setTexture(m_texture);
-	m_sprite.setOrigin(Width() / 2, Height() / 2);
+	m_sprite.setOrigin((float)Width() / 2, (float)Height() / 2);
 	m_sprite.setColor(color::Transparent(sf::Color::Blue));
 }
 
@@ -21,11 +21,11 @@ bool asteroidSys::Asteroid::IsAvailable() const {
 	return m_available;
 }
 
-float asteroidSys::Asteroid::Width() const {
+unsigned int asteroidSys::Asteroid::Width() const {
 	return m_texture.getSize().x;
 }
 
-float asteroidSys::Asteroid::Height() const {
+unsigned int asteroidSys::Asteroid::Height() const {
 	return m_texture.getSize().y;
 }
 
@@ -44,7 +44,7 @@ void asteroidSys::Asteroid::SetColor(const sf::Color& color) {
 void asteroidSys::Asteroid::SetDirection(const float angle) {
 	m_sprite.setRotation(angle);
 	sf::Vector2f direction = sf::Vector2f(
-		std::sin(angle * PI / 180.f), -std::cos(angle * PI / 180.f));
+		(float)std::sin(angle * PI / 180.f), (float)-std::cos(angle * PI / 180.f));
 	m_direction = direction;
 
 }

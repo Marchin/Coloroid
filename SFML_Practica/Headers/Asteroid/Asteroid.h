@@ -11,8 +11,8 @@ namespace asteroidSys {
 		Asteroid();
 		void Update(const float deltaTime);
 		bool IsAvailable() const;
-		float Width() const;
-		float Height() const;
+		unsigned int Width() const;
+		unsigned int Height() const;
 		sf::Color GetColor() const;
 		sf::Sprite GetDrawable() const;
 		void SetColor(const sf::Color& color);

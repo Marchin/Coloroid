@@ -2,7 +2,7 @@
 #define ICONTROLLER_H
 
 #include <SFML/Window.hpp>
-#include "Input.h"
+#include "Input/InputObserver.h"
 
 namespace input {
 	class IController {

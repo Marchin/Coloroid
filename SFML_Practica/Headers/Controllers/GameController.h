@@ -2,8 +2,6 @@
 #define GAME_CONTROLLER_H
 
 #include "IController.h"
-#include <array>
-#define INPUT_AMMOUNT 7
 #define FIRE 0
 #define ROTATE_LEFT 1
 #define ROTATE_RIGHT 2
@@ -15,8 +13,9 @@
 namespace input {
 	class GameController : public IController {
 	public:
-		virtual void UpdateKeys();
 		GameController();
+		~GameController();
+		virtual void UpdateKeys();
 		bool Fire();
 		bool RotateLeft();
 		bool RotateRight();
@@ -25,7 +24,8 @@ namespace input {
 		bool ColorizeGreen();
 		bool ColorizeYellow();
 	private:
-		std::array<input::Input, INPUT_AMMOUNT> m_keys;
+		typedef InputObserver<sf::Keyboard::Key> Input;
+		std::vector<Input*> m_keys;
 	};
 }
 #endif // !GAME_CONTROLLER_H

@@ -28,7 +28,7 @@ namespace player {
 	}
 
 	void Player::Fire() {
-		m_pAammo->RequestShot(m_sprite.getRotation(), m_sprite.getColor());
+		m_pAammo->Request(m_sprite.getRotation(), m_sprite.getColor());
 	}
 
 	void Player::UpdateShots(const std::vector<sf::Sprite>& obstacles,

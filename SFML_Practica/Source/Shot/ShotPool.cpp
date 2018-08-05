@@ -7,12 +7,12 @@ namespace shotSys {
 		m_shots = std::vector<Shot>(amount);
 	}
 
-	bool ShotPool::RequestShot(const float angle, 
+	bool ShotPool::Request(const float angle, 
 		const sf::Color& color) {
 
-		Shot* shot = nullptr;
-		if (IsShotAvailable(shot)) {
-			ResetShotPosition(*shot);
+		ISprite* shot = nullptr;
+		if (IsAvailable(shot)) {
+			ResetPosition(shot);
 			shot->SetColor(color);
 			shot->SetDirection(angle);
 			shot->Enable();
@@ -27,7 +27,7 @@ namespace shotSys {
 
 		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			m_shots[i].Update(obstacles, deltaTime);
-			if (OutOfBound(m_shots[i])) {
+			if (OutOfBound(&m_shots[i])) {
 				m_shots[i].Disable();
 			}
 		}
@@ -41,7 +41,7 @@ namespace shotSys {
 		}
 	}
 
-	bool ShotPool::IsShotAvailable(Shot*& pShotRequester) {
+	bool ShotPool::IsAvailable(ISprite*& pShotRequester){
 		bool isAvailable = false;
 		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			if (m_shots[i].IsAvailable()) {
@@ -53,17 +53,17 @@ namespace shotSys {
 		return isAvailable;
 	}
 
-	void ShotPool::ResetShotPosition(Shot& shot) {
+	void ShotPool::ResetPosition(ISprite*& shot) {
 		sf::Vector2f screenCenter(
 			m_pView->getSize().x / 2.f, m_pView->getSize().y / 2.f);
-		shot.SetPosition(screenCenter);
+		shot->SetPosition(screenCenter);
 	}
 
-	bool ShotPool::OutOfBound(const Shot& shot) {
-		return ((shot.GetPosition().x < 0.f) || 
-			(shot.GetPosition().x > m_pView->getSize().x) ||
-			(shot.GetPosition().y < 0.f) || 
-			(shot.GetPosition().y > m_pView->getSize().y)
+	bool ShotPool::OutOfBound(const ISprite* const& shot) const{
+		return ((shot->GetPosition().x < 0.f) || 
+			(shot->GetPosition().x > m_pView->getSize().x) ||
+			(shot->GetPosition().y < 0.f) || 
+			(shot->GetPosition().y > m_pView->getSize().y)
 			);
 	}
 }

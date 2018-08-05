@@ -1,12 +1,12 @@
 #ifndef ASTEROID_H
 #define ASTEROID_H
 
-#include <SFML/Graphics.hpp>
+#include "Sprites/ISprite.h"
 #include "ColorExtension.h"
 #define PI 3.14159265
 
 namespace asteroidSys {
-	class Asteroid {
+	class Asteroid : ISprite {
 	public:
 		Asteroid();
 		void Update(const float deltaTime);

@@ -1,29 +1,30 @@
 #ifndef SHOT_H
 #define SHOT_H
 
-#include <SFML/Graphics.hpp>
+#include "Sprites/ISprite.h"
 #include "ColorExtension.h"
 #include "Collision.h"
 #define PI 3.14159265
 
 namespace shotSys {
-	class Shot {
+	class Shot : public ISprite{
 	public:
 		Shot();
 		void Update(const std::vector<sf::Sprite>& obstacles,
-			const float deltaTime);
-		float GetDirection() const;
-		void SetDirection(const float angle);
-		sf::Color GetColor() const;
-		void SetColor(const sf::Color& color);
-		bool IsAvailable() const;
-		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-		sf::Vector2f GetPosition() const;
-		void SetPosition(const sf::Vector2f& position);
-		void Enable();
-		void Disable();
-		float Width() const;
-		float Height() const;
+			const float deltaTime) override;
+		float GetDirection() const override;
+		void SetDirection(const float angle) override;
+		sf::Color GetColor() const override;
+		void SetColor(const sf::Color& color) override;
+		bool IsAvailable() const override;
+		void draw(sf::RenderTarget& target,
+			sf::RenderStates states) const override;
+		sf::Vector2f GetPosition() const override;
+		void SetPosition(const sf::Vector2f& position) override;
+		void Enable() override;
+		void Disable() override;
+		unsigned int Width() const override;
+		unsigned int Height() const override;
 	private:
 		void CheckCollision(const std::vector<sf::Sprite>& obstacles);
 		float m_speed;

@@ -9,15 +9,15 @@ namespace shotSys {
 			printf("texture error");
 		}
 		m_sprite.setTexture(m_texture);
-		m_sprite.setOrigin(Width() / 2, Height() / 2);
+		m_sprite.setOrigin((float)Width() / 2, (float)Height() / 2);
 		m_sprite.setColor(color::Transparent(sf::Color::Blue));
 	}
 
-	float Shot::Width() const{
+	unsigned int Shot::Width() const{
 		return m_sprite.getLocalBounds().width;
 	}
 
-	float Shot::Height() const{
+	unsigned int Shot::Height() const{
 		return m_sprite.getLocalBounds().height;
 	}
 

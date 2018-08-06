@@ -6,11 +6,15 @@
 #include "Collision.h"
 #define PI 3.14159265
 
+namespace asteroidSys {
+	class AsteroidPool;
+}
+
 namespace shotSys {
 	class Shot : public ISprite{
 	public:
 		Shot();
-		void Update(const std::vector<sf::Sprite>& obstacles,
+		void Update(asteroidSys::AsteroidPool& obstacles,
 			const float deltaTime);
 		float GetDirection() const override;
 		void SetDirection(const float angle) override;
@@ -26,7 +30,7 @@ namespace shotSys {
 		unsigned int Width() const override;
 		unsigned int Height() const override;
 	private:
-		void CheckCollision(const std::vector<sf::Sprite>& obstacles);
+		void CheckCollision(asteroidSys::AsteroidPool& obstacles);
 		float m_speed;
 		bool m_beingFired;
 		sf::Vector2f m_direction; 

@@ -67,6 +67,10 @@ namespace asteroidSys {
 		m_sprite.setColor(color::Transparent(m_sprite.getColor()));
 	}
 
+	sf::Sprite Asteroid::GetSprite() const {
+		return m_sprite;
+	}
+
 	void Asteroid::draw(sf::RenderTarget& target,
 		sf::RenderStates states) const {
 

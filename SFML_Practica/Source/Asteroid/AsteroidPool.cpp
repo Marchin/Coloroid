@@ -1,4 +1,5 @@
 #include "Asteroid/AsteroidPool.h"
+#include <ctime>
 
 namespace asteroidSys {
 	AsteroidPool::AsteroidPool(const sf::View* pView, unsigned int amount) 
@@ -37,6 +38,14 @@ namespace asteroidSys {
 		}
 	}
 
+	unsigned int AsteroidPool::GetSize() const {
+		return m_asteroids.size();
+	}
+
+	Asteroid AsteroidPool::operator[](unsigned int index) {
+		return m_asteroids[index];
+	}
+
 	bool AsteroidPool::IsAvailable(ISprite*& pRequester) {
 		bool isAvailable = false;
 		for (unsigned int i = 0; i < m_asteroids.size(); i++) {
@@ -50,9 +59,15 @@ namespace asteroidSys {
 	}
 
 	void AsteroidPool::ResetPosition(ISprite*& asteroid) {
-		sf::Vector2f screenCenter(
-			m_pView->getSize().x / 2.f, m_pView->getSize().y / 2.f);
-		asteroid->SetPosition(screenCenter);
+		srand(time(0));
+		sf::Vector2f newPosition = sf::Vector2f(
+			rand()%(int)(m_pView->getSize().x),
+			rand()%(int)(m_pView->getSize().y));
+		sf::Vector2f axisSelector =
+			((rand() % 2) ? sf::Vector2f(0.f, 1.f) : sf::Vector2f(0.f, 1.f));
+		newPosition = sf::Vector2f(newPosition.x * axisSelector.x,
+			newPosition.y * axisSelector.y);
+		asteroid->SetPosition(newPosition);
 	}
 
 	bool AsteroidPool::OutOfBound(const ISprite* const& asteroid) const {

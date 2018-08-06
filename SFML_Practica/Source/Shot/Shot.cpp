@@ -1,4 +1,5 @@
 #include "Shot\Shot.h"
+#include "Asteroid/AsteroidPool.h"
 
 namespace shotSys {
 	Shot::Shot()
@@ -21,7 +22,7 @@ namespace shotSys {
 		return m_sprite.getLocalBounds().height;
 	}
 
-	void Shot::Update(const std::vector<sf::Sprite>& obstacles,
+	void Shot::Update(asteroidSys::AsteroidPool& obstacles,
 							const float deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
@@ -40,11 +41,11 @@ namespace shotSys {
 		m_direction = direction;
 	}
 
-	void Shot::CheckCollision(const std::vector<sf::Sprite>& obstacles) {
-		for (int i = 0; obstacles.size(); i++) {
-			if (Collision::CircleTest(m_sprite, obstacles[i])) {
-				if (m_sprite.getColor() == obstacles[i].getColor()) {
-					//destroy asteroid
+	void Shot::CheckCollision(asteroidSys::AsteroidPool& asteroids) {
+		for (unsigned int i = 0; asteroids.GetSize(); i++) {
+			if (Collision::CircleTest(m_sprite, asteroids[i].GetSprite())) {
+				if (m_sprite.getColor() == asteroids[i].GetColor()) {
+					asteroids[i].Disable();
 				}
 				Disable();
 			}

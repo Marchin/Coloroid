@@ -21,6 +21,7 @@ namespace asteroidSys {
 		void SetPosition(const sf::Vector2f& position) override;
 		void Enable() override;
 		void Disable() override;
+		sf::Sprite GetSprite() const;
 		void draw(sf::RenderTarget& target,
 			sf::RenderStates states) const override;
 	private:

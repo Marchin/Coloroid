@@ -10,7 +10,7 @@ namespace shotSys {
 		ShotPool(const sf::View* pView, unsigned int amount);
 		bool Request(const float angle, const sf::Color& color) override;
 		void Update(const float deltaTime,
-			const std::vector<sf::Sprite>& obstacles);
+			asteroidSys::AsteroidPool& obstacles);
 		void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	private:
 		bool IsAvailable(ISprite*& pRequester) override;

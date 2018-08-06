@@ -23,7 +23,7 @@ namespace shotSys {
 	}
 
 	void ShotPool::Update(const float deltaTime,
-		const std::vector<sf::Sprite>& obstacles) {
+		asteroidSys::AsteroidPool& obstacles) {
 
 		for (unsigned int i = 0; i < m_shots.size(); i++) {
 			m_shots[i].Update(obstacles, deltaTime);

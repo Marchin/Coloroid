@@ -8,13 +8,12 @@ namespace shotSys {
 	class ShotPool : public ISpritePool{
 	public:
 		ShotPool(const sf::View* pView, unsigned int amount);
-		~ShotPool() {}
 		bool Request(const float angle, const sf::Color& color) override;
 		void Update(const float deltaTime,
-			const std::vector<sf::Sprite>& obstacles) override;
+			const std::vector<sf::Sprite>& obstacles);
 		void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	private:
-		bool IsAvailable(ISprite*& pShotRequester) override;
+		bool IsAvailable(ISprite*& pRequester) override;
 		void ResetPosition(ISprite*& shot) override;
 		bool OutOfBound(const ISprite* const& shot) const override;
 		const sf::View* m_pView;

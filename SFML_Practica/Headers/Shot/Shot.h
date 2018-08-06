@@ -11,7 +11,7 @@ namespace shotSys {
 	public:
 		Shot();
 		void Update(const std::vector<sf::Sprite>& obstacles,
-			const float deltaTime) override;
+			const float deltaTime);
 		float GetDirection() const override;
 		void SetDirection(const float angle) override;
 		sf::Color GetColor() const override;

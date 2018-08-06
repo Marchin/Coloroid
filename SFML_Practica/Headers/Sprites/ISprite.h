@@ -5,8 +5,6 @@
 
 class ISprite {
 public:
-	virtual void Update(const std::vector<sf::Sprite>& obstacles,
-		const float deltaTime) = 0;
 	virtual float GetDirection() const = 0;
 	virtual void SetDirection(const float angle) = 0;
 	virtual sf::Color GetColor() const = 0;

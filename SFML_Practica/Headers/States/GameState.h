@@ -3,17 +3,19 @@
 
 #include "IState.h"
 #include "Player.h"
+#include "Asteroid/AsteroidPool.h"
 #include "Controllers\GameController.h"
 
 namespace state {
 	class GameState : public IState {
 	public:
-		GameState(sf::RenderWindow& window);
+		GameState(sf::View& view, const sf::Time* elapsed);
 		virtual void Update(IState* pNextState);
 	private:
-		IState* m_pNextState;
-		sf::RenderWindow* m_pWindow;
+		sf::View* m_pView;
+		const sf::Time* m_pTime;
 		player::Player* m_pPlayer;
+		asteroidSys::AsteroidPool* m_pAsteroids;
 		input::GameController m_gameController;
 		virtual void StateLoop();
 		void CheckInput();

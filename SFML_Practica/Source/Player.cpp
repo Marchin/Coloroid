@@ -31,7 +31,7 @@ namespace player {
 		m_pAammo->Request(m_sprite.getRotation(), m_sprite.getColor());
 	}
 
-	void Player::UpdateShots(const std::vector<sf::Sprite>& obstacles,
+	void Player::UpdateShots(asteroidSys::AsteroidPool& obstacles,
 		const float deltaTime) {
 
 		m_pAammo->Update(deltaTime, obstacles);

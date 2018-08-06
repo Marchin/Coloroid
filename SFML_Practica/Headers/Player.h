@@ -10,10 +10,10 @@ namespace player {
 		Player(const sf::Vector2f& position, const sf::View* pView);
 		~Player();
 		void SetColor(const sf::Color& color);
-		void Rotate(const float angle,const float deltaTime = 1.f);
+		void Rotate(const float angle, const float deltaTime = 1.f);
 		void Fire();
 		void UpdateShots(
-			const std::vector<sf::Sprite>& obstacles,
+			asteroidSys::AsteroidPool& obstacles,
 			const float deltaTime = 1.f);
 		float Width() const;
 		float Height() const;

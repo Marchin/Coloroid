@@ -23,6 +23,10 @@ namespace player {
 		m_sprite.setColor(color);
 	}
 
+	sf::Vector2f Player::GetPosition() const {
+		return m_sprite.getPosition();
+	}
+
 	void Player::Rotate(const float angle, const float deltaTime) {
 		m_sprite.rotate(angle * deltaTime);
 	}

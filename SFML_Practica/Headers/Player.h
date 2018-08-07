@@ -10,6 +10,7 @@ namespace player {
 		Player(const sf::Vector2f& position, const sf::View* pView);
 		~Player();
 		void SetColor(const sf::Color& color);
+		sf::Vector2f GetPosition() const;
 		void Rotate(const float angle, const float deltaTime = 1.f);
 		void Fire();
 		void UpdateShots(

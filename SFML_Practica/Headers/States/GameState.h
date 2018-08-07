@@ -9,16 +9,17 @@
 namespace state {
 	class GameState : public IState {
 	public:
-		GameState(sf::View& view, const sf::Time* elapsed);
-		virtual void Update(IState* pNextState);
+		GameState(sf::RenderWindow* window, const sf::Time* elapsed);
+		~GameState();
+		void Update(IState* pNextState, bool& exitGame) override;
 	private:
-		sf::View* m_pView;
-		const sf::Time* m_pTime;
+		void CheckInput();
+		void UpdateAsteroids();
+		sf::RenderWindow* m_pWindow;
+		const sf::Time const* m_time;
 		player::Player* m_pPlayer;
 		asteroidSys::AsteroidPool* m_pAsteroids;
 		input::GameController m_gameController;
-		virtual void StateLoop();
-		void CheckInput();
 	};
 }
 #endif // !GAME_STATE_H

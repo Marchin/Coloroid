@@ -30,11 +30,11 @@ namespace asteroidSys {
 		}
 	}
 
-	void AsteroidPool::draw(sf::RenderTarget & target, 
+	void AsteroidPool::draw(sf::RenderTarget& target, 
 		sf::RenderStates states) const {
 
-		for (Asteroid asteroid : m_asteroids) {
-			asteroid.draw(target, states);
+		for (unsigned int i = 0; i < m_asteroids.size(); i++) {
+			m_asteroids[i].draw(target, states);
 		}
 	}
 

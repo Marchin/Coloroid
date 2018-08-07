@@ -1,4 +1,5 @@
 #include "Asteroid/Asteroid.h"
+#include "Constants.h"
 
 namespace asteroidSys {
 	Asteroid::Asteroid()
@@ -45,7 +46,8 @@ namespace asteroidSys {
 	void Asteroid::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
 		sf::Vector2f direction = sf::Vector2f(
-			(float)std::sin(angle * PI / 180.f), (float)-std::cos(angle * PI / 180.f));
+			(float)std::sin(angle * constant::PI / 180.f), 
+			(float)-std::cos(angle * constant::PI / 180.f));
 		m_direction = direction;
 
 	}
@@ -60,11 +62,13 @@ namespace asteroidSys {
 
 	void Asteroid::Enable() {
 		m_beingUsed = true;
+		m_speed = constant::ASTEROIDS_SPEED;
 	}
 
 	void Asteroid::Disable() {
 		m_beingUsed = false;
 		m_sprite.setColor(color::Transparent(m_sprite.getColor()));
+		m_speed = 0.f;
 	}
 
 	sf::Sprite Asteroid::GetSprite() const {
@@ -74,8 +78,6 @@ namespace asteroidSys {
 	void Asteroid::draw(sf::RenderTarget& target,
 		sf::RenderStates states) const {
 
-		if (m_beingUsed) {
-			target.draw(m_sprite, states);
-		}
+		target.draw(m_sprite, states);
 	}
 }

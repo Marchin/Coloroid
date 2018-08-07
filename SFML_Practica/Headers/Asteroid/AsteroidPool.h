@@ -10,11 +10,11 @@ namespace asteroidSys {
 		AsteroidPool(const sf::View* pView, unsigned int amount);
 		bool Request(const float angle, const sf::Color& color) override;
 		void Update(const float deltaTime);
-		void draw(sf::RenderTarget& target, 
-			sf::RenderStates states) const override;
-		Asteroid operator [](unsigned int index);
+		Asteroid operator[](unsigned int index);
 		unsigned int GetSize() const;
 	private:
+		void draw(sf::RenderTarget& target,
+			sf::RenderStates states) const ;
 		bool IsAvailable(ISprite*& pRequester) override;
 		void ResetPosition(ISprite*& asteroid) override;
 		bool OutOfBound(const ISprite* const& asteroid) const override;

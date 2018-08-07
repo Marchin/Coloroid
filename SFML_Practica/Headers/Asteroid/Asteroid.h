@@ -3,7 +3,6 @@
 
 #include "Sprites/ISprite.h"
 #include "ColorExtension.h"
-#define PI 3.14159265
 
 namespace asteroidSys {
 	class Asteroid : public ISprite {

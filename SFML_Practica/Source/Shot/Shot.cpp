@@ -1,9 +1,11 @@
 #include "Shot\Shot.h"
 #include "Asteroid/AsteroidPool.h"
+#include "Constants.h"
 
 namespace shotSys {
 	Shot::Shot()
-		: m_speed(100.f), m_direction(sf::Vector2f(0.f, 0.f)),
+		: m_speed(constant::SHOTS_SPEED), 
+		m_direction(sf::Vector2f(0.f, 0.f)),
 		m_beingFired(false) {
 
 		if (!m_texture.loadFromFile("../SFML_Practica/Resources/Shot.png")) {
@@ -37,12 +39,12 @@ namespace shotSys {
 	void Shot::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
 		sf::Vector2f direction = sf::Vector2f(
-			std::sin(angle * PI/180.f),-std::cos(angle * PI/180.f));
+			std::sin(angle * constant::PI/180.f),-std::cos(angle * constant::PI/180.f));
 		m_direction = direction;
 	}
 
 	void Shot::CheckCollision(asteroidSys::AsteroidPool& asteroids) {
-		for (unsigned int i = 0; asteroids.GetSize(); i++) {
+		for (unsigned int i = 0; i < asteroids.GetSize(); i++) {
 			if (Collision::CircleTest(m_sprite, asteroids[i].GetSprite())) {
 				if (m_sprite.getColor() == asteroids[i].GetColor()) {
 					asteroids[i].Disable();

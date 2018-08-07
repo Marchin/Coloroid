@@ -4,7 +4,6 @@
 #include "Sprites/ISprite.h"
 #include "ColorExtension.h"
 #include "Collision.h"
-#define PI 3.14159265
 
 namespace asteroidSys {
 	class AsteroidPool;

@@ -3,8 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
-class ISprite {
+class ISprite : public sf::Drawable {
 public:
+	virtual ~ISprite() {}
 	virtual float GetDirection() const = 0;
 	virtual void SetDirection(const float angle) = 0;
 	virtual sf::Color GetColor() const = 0;

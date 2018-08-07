@@ -3,7 +3,7 @@
 
 #include "ISprite.h"
 
-class ISpritePool {
+class ISpritePool : public sf::Drawable {
 public:
 	virtual bool Request(const float angle, const sf::Color& color) = 0;
 	virtual void draw(sf::RenderTarget & target,

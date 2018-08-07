@@ -6,16 +6,17 @@
 namespace state {
 	class StateController {
 	public:
-		StateController(sf::RenderWindow& window);
+		StateController(sf::RenderWindow* window,
+			const sf::Time* time, IState* initialState);
 		~StateController();
 		void Update();
 		bool HasEnded() const;
-
 	private:
-		void NextState(IState* pNextState);
-		IState * m_pCurrentState;
-		IState * m_pPreviousState;
-		bool m_finished;
+		sf::RenderWindow* m_pWindow;
+		const sf::Time const* m_time;
+		IState* m_pCurrentState;
+		IState* m_pNextState;
+		bool m_exitGame;
 	};
 }
 #endif // !STATE_CONTROLLER_H

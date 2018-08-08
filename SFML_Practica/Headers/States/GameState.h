@@ -16,7 +16,7 @@ namespace state {
 		void CheckInput();
 		void UpdateAsteroids();
 		sf::RenderWindow* m_pWindow;
-		const sf::Time const* m_time;
+		const sf::Time* const m_time;
 		player::Player* m_pPlayer;
 		asteroidSys::AsteroidPool* m_pAsteroids;
 		input::GameController m_gameController;

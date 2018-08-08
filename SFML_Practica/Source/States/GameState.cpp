@@ -9,8 +9,8 @@ namespace state {
 		sf::Vector2f screenCenter(window->getView().getSize().x / 2.f, 
 			window->getView().getSize().y / 2.f);
 		m_pPlayer = new player::Player(screenCenter, &window->getView());
-		m_pAsteroids = new asteroidSys::AsteroidPool(
-			&m_pWindow->getView(), constant::ASTEROIDS);
+		m_pAsteroids = new asteroidSys::AsteroidPool(&m_pWindow->getView(),
+			constant::ASTEROIDS, constant::ASTEROIDS_INTERVAL);
 	}
 
 	GameState::~GameState() {
@@ -53,15 +53,14 @@ namespace state {
 	}
 
 	void GameState::UpdateAsteroids() {
-		for (unsigned int i = 0; i < m_pAsteroids->GetSize(); i++) {
-			if (m_pAsteroids->Request(0, sf::Color::Red)) {
-				sf::Vector2f direction =
-					m_pPlayer->GetPosition() - m_pAsteroids->operator[](i).GetPosition();
-				float angle = atan((direction.y / direction.x) * 180 / constant::PI);
-				m_pAsteroids->operator[](i).SetDirection(angle);
-				break;
-			}
+		asteroidSys::Asteroid* asteroid;
+		if (m_pAsteroids->Request(0, sf::Color::Red, &asteroid)) {
+			sf::Vector2f direction =
+				m_pPlayer->GetPosition() - asteroid->GetPosition();
+			float angle = atan(direction.y / direction.x) 
+				* 180.f / (float)constant::PI;
+			asteroid->SetDirection(angle);
 		}
-		m_pAsteroids->Update(m_time->asMilliseconds());
+		m_pAsteroids->Update(m_time->asSeconds());
 	}
 }

@@ -13,7 +13,7 @@ namespace state {
 		bool HasEnded() const;
 	private:
 		sf::RenderWindow* m_pWindow;
-		const sf::Time const* m_time;
+		const sf::Time* const m_time;
 		IState* m_pCurrentState;
 		IState* m_pNextState;
 		bool m_exitGame;

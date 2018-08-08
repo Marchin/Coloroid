@@ -10,8 +10,8 @@ public:
 
 	TEST_METHOD(Instatiation) {
 		shotSys::Shot shot;
-		Assert::AreEqual(shot.Width(), (unsigned)8);
-		Assert::AreEqual(shot.Height(), (unsigned)8);
+		Assert::AreEqual(shot.Width(), 8.f);
+		Assert::AreEqual(shot.Height(), 8.f);
 		Assert::AreEqual(shot.IsAvailable(), true);
 		Assert::AreEqual(shot.GetPosition().x, 0.f);
 		Assert::AreEqual(shot.GetPosition().y, 0.f);

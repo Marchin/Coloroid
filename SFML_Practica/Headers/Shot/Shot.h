@@ -26,8 +26,8 @@ namespace shotSys {
 		void SetPosition(const sf::Vector2f& position) override;
 		void Enable() override;
 		void Disable() override;
-		unsigned int Width() const override;
-		unsigned int Height() const override;
+		float Width() const override;
+		float Height() const override;
 	private:
 		void CheckCollision(asteroidSys::AsteroidPool& obstacles);
 		float m_speed;

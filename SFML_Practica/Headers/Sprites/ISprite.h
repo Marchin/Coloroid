@@ -17,8 +17,8 @@ public:
 	virtual void SetPosition(const sf::Vector2f& position) = 0;
 	virtual void Enable() = 0;
 	virtual void Disable() = 0;
-	virtual unsigned int Width() const = 0;
-	virtual unsigned int Height() const = 0;
+	virtual float Width() const = 0;
+	virtual float Height() const = 0;
 };
 
 #endif // !ISPRITE_H

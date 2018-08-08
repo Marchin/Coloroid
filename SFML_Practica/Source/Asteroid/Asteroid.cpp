@@ -3,13 +3,14 @@
 
 namespace asteroidSys {
 	Asteroid::Asteroid()
-		: m_speed(0.f), m_direction(sf::Vector2f(0.f, 0.f)) {
+		: m_speed(constant::ASTEROIDS_SPEED), m_direction(sf::Vector2f(0.f, 0.f)),
+		m_beingUsed(false) {
 
 		if (!m_texture.loadFromFile("../SFML_Practica/Resources/Asteroid.png")) {
 			printf("texture error");
 		}
 		m_sprite.setTexture(m_texture);
-		m_sprite.setOrigin((float)Width() / 2, (float)Height() / 2);
+		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.setColor(color::Transparent(sf::Color::Blue));
 	}
 
@@ -20,14 +21,14 @@ namespace asteroidSys {
 	}
 
 	bool Asteroid::IsAvailable() const {
-		return m_beingUsed;
+		return !m_beingUsed;
 	}
 
-	unsigned int Asteroid::Width() const {
+	float Asteroid::Width() const {
 		return m_texture.getSize().x;
 	}
 
-	unsigned int Asteroid::Height() const {
+	float Asteroid::Height() const {
 		return m_texture.getSize().y;
 	}
 
@@ -45,11 +46,9 @@ namespace asteroidSys {
 
 	void Asteroid::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
-		sf::Vector2f direction = sf::Vector2f(
+		m_direction = sf::Vector2f(
 			(float)std::sin(angle * constant::PI / 180.f), 
 			(float)-std::cos(angle * constant::PI / 180.f));
-		m_direction = direction;
-
 	}
 
 	sf::Vector2f Asteroid::GetPosition() const {
@@ -62,13 +61,11 @@ namespace asteroidSys {
 
 	void Asteroid::Enable() {
 		m_beingUsed = true;
-		m_speed = constant::ASTEROIDS_SPEED;
 	}
 
 	void Asteroid::Disable() {
 		m_beingUsed = false;
 		m_sprite.setColor(color::Transparent(m_sprite.getColor()));
-		m_speed = 0.f;
 	}
 
 	sf::Sprite Asteroid::GetSprite() const {

@@ -10,8 +10,8 @@ namespace asteroidSys {
 		Asteroid();
 		void Update(const float deltaTime);
 		bool IsAvailable() const override;
-		unsigned int Width() const override;
-		unsigned int Height() const override;
+		float Width() const override;
+		float Height() const override;
 		sf::Color GetColor() const override;
 		void SetColor(const sf::Color& color) override;
 		float GetDirection() const override;

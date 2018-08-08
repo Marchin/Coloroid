@@ -2,23 +2,34 @@
 #include <ctime>
 
 namespace asteroidSys {
-	AsteroidPool::AsteroidPool(const sf::View* pView, unsigned int amount) 
-		: m_pView(pView) {
+	AsteroidPool::AsteroidPool(const sf::View* pView, unsigned int amount,
+		float interval) 
+		: m_pView(pView), m_interval(interval)
+		, m_counter(0.f) {
 
 		m_asteroids = std::vector<Asteroid>(amount);
+		srand(time(0));
 	}
 
-	bool AsteroidPool::Request(const float angle, const sf::Color & color) {
-		ISprite* asteroid = nullptr;
-		if (IsAvailable(asteroid)) {
-			ResetPosition(asteroid);
-			asteroid->SetColor(color);
-			asteroid->SetDirection(angle);
-			asteroid->Enable();
-			return true;
-		} else {
-			return false;
-		}
+	bool AsteroidPool::Request(const float angle, const sf::Color & color,
+		Asteroid** requested) {
+
+		bool result = false;
+		if (m_counter >= m_interval){
+			ISprite* asteroid = nullptr;
+			if (IsAvailable(asteroid)) {
+				ResetPosition(asteroid);
+				asteroid->SetColor(color);
+				asteroid->SetDirection(angle);
+				asteroid->Enable();
+				if (requested != nullptr) {
+					*requested = static_cast<Asteroid*>(asteroid);
+				}
+				m_counter = 0.f;
+				result = true;
+			}
+		} 
+		return result;
 	}
 
 	void AsteroidPool::Update(const float deltaTime) {
@@ -27,6 +38,7 @@ namespace asteroidSys {
 			if (OutOfBound(&m_asteroids[i])) {
 				m_asteroids[i].Disable();
 			}
+			m_counter += deltaTime;
 		}
 	}
 
@@ -59,10 +71,9 @@ namespace asteroidSys {
 	}
 
 	void AsteroidPool::ResetPosition(ISprite*& asteroid) {
-		srand(time(0));
 		sf::Vector2f newPosition = sf::Vector2f(
-			rand()%(int)(m_pView->getSize().x),
-			rand()%(int)(m_pView->getSize().y));
+			(float)(rand()%(int)(m_pView->getSize().x)),
+			(float)(rand()%(int)(m_pView->getSize().y)));
 		sf::Vector2f axisSelector =
 			((rand() % 2) ? sf::Vector2f(0.f, 1.f) : sf::Vector2f(0.f, 1.f));
 		newPosition = sf::Vector2f(newPosition.x * axisSelector.x,

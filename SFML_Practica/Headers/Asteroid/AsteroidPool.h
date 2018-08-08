@@ -7,8 +7,10 @@
 namespace asteroidSys {
 	class AsteroidPool : public ISpritePool {
 	public:
-		AsteroidPool(const sf::View* pView, unsigned int amount);
-		bool Request(const float angle, const sf::Color& color) override;
+		AsteroidPool(const sf::View* pView,
+			unsigned int amount, float interval);
+		bool Request(const float angle, const sf::Color& color,
+			Asteroid** requested = nullptr);
 		void Update(const float deltaTime);
 		Asteroid operator[](unsigned int index);
 		unsigned int GetSize() const;
@@ -20,6 +22,8 @@ namespace asteroidSys {
 		bool OutOfBound(const ISprite* const& asteroid) const override;
 		const sf::View* m_pView;
 		std::vector<Asteroid> m_asteroids;
+		const float m_interval;
+		float m_counter;
 	};
 }
 

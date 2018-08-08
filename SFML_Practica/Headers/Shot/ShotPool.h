@@ -8,7 +8,8 @@ namespace shotSys {
 	class ShotPool : public ISpritePool{
 	public:
 		ShotPool(const sf::View* pView, unsigned int amount);
-		bool Request(const float angle, const sf::Color& color) override;
+		bool Request(const float angle, const sf::Color& color,
+			Shot** requested = nullptr);
 		void Update(const float deltaTime,
 			asteroidSys::AsteroidPool& obstacles);
 		void draw(sf::RenderTarget & target, sf::RenderStates states) const override;

@@ -12,15 +12,15 @@ namespace shotSys {
 			printf("texture error");
 		}
 		m_sprite.setTexture(m_texture);
-		m_sprite.setOrigin((float)Width() / 2, (float)Height() / 2);
+		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.setColor(color::Transparent(sf::Color::Blue));
 	}
 
-	unsigned int Shot::Width() const{
+	float Shot::Width() const{
 		return m_sprite.getLocalBounds().width;
 	}
 
-	unsigned int Shot::Height() const{
+	float Shot::Height() const{
 		return m_sprite.getLocalBounds().height;
 	}
 
@@ -38,9 +38,9 @@ namespace shotSys {
 
 	void Shot::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
-		sf::Vector2f direction = sf::Vector2f(
-			std::sin(angle * constant::PI/180.f),-std::cos(angle * constant::PI/180.f));
-		m_direction = direction;
+		m_direction = sf::Vector2f(
+			(float)std::sin(angle * constant::PI/180.f),
+			(float)-std::cos(angle * constant::PI/180.f));
 	}
 
 	void Shot::CheckCollision(asteroidSys::AsteroidPool& asteroids) {

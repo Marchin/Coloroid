@@ -7,8 +7,8 @@ namespace shotSys {
 		m_shots = std::vector<Shot>(amount);
 	}
 
-	bool ShotPool::Request(const float angle, 
-		const sf::Color& color) {
+	bool ShotPool::Request(const float angle, const sf::Color& color,
+		Shot** requested) {
 
 		ISprite* shot = nullptr;
 		if (IsAvailable(shot)) {
@@ -16,6 +16,9 @@ namespace shotSys {
 			shot->SetColor(color);
 			shot->SetDirection(angle);
 			shot->Enable();
+			if (requested != nullptr) {
+				*requested = static_cast<Shot*>(shot);
+			}
 			return true;
 		} else {
 			return false;

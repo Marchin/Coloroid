@@ -75,9 +75,14 @@ namespace asteroidSys {
 			(float)(rand()%(int)(m_pView->getSize().x)),
 			(float)(rand()%(int)(m_pView->getSize().y)));
 		sf::Vector2f axisSelector =
-			((rand() % 2) ? sf::Vector2f(0.f, 1.f) : sf::Vector2f(0.f, 1.f));
+			((rand() % 2) ? sf::Vector2f(1.f, 0.f) : sf::Vector2f(0.f, 1.f));
 		newPosition = sf::Vector2f(newPosition.x * axisSelector.x,
-			newPosition.y * axisSelector.y);
+			newPosition.y * axisSelector.y); //forzar un eje a min o max
+		if (axisSelector.x == 0.f) {
+			newPosition.x += (rand() % 2) ? 0.f : m_pView->getSize().x;
+		} else {
+			newPosition.y += (rand() % 2) ? 0.f : m_pView->getSize().y;
+		}
 		asteroid->SetPosition(newPosition);
 	}
 

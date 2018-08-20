@@ -5,7 +5,7 @@ namespace player {
 	Player::Player(const sf::Vector2f& position, const sf::View* pView) 
 		: m_pView(pView) {
 
-		if (!m_texture.loadFromFile("Resources\\Nave.png")) {
+		if (!m_texture.loadFromFile("Resources\\Ship.png")) {
 			printf("texture error");
 		}
 		m_sprite.setTexture(m_texture);
@@ -27,8 +27,8 @@ namespace player {
 		return m_sprite.getPosition();
 	}
 
-	void Player::Rotate(const float angle, const float deltaTime) {
-		m_sprite.rotate(angle * deltaTime);
+	void Player::Rotate(const float turnRate, const float deltaTime) {
+		m_sprite.rotate(turnRate * deltaTime);
 	}
 
 	void Player::Fire() {

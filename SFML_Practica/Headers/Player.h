@@ -11,7 +11,7 @@ namespace player {
 		~Player();
 		void SetColor(const sf::Color& color);
 		sf::Vector2f GetPosition() const;
-		void Rotate(const float angle, const float deltaTime = 1.f);
+		void Rotate(const float turnRate, const float deltaTime = 1.f);
 		void Fire();
 		void UpdateShots(
 			asteroidSys::AsteroidPool& obstacles,

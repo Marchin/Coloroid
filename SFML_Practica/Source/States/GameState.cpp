@@ -30,10 +30,10 @@ namespace state {
 	void GameState::CheckInput() {
 		m_gameController.UpdateKeys();
 		if (m_gameController.RotateLeft()) {
-			m_pPlayer->Rotate(-90.f, m_time->asSeconds());
+			m_pPlayer->Rotate(-constant::TURN_RATE, m_time->asSeconds());
 		}
 		if (m_gameController.RotateRight()) {
-			m_pPlayer->Rotate(90.f, m_time->asSeconds());
+			m_pPlayer->Rotate(constant::TURN_RATE, m_time->asSeconds());
 		}
 		if (m_gameController.Fire()) {
 			m_pPlayer->Fire();
@@ -54,12 +54,10 @@ namespace state {
 
 	void GameState::UpdateAsteroids() {
 		asteroidSys::Asteroid* asteroid;
-		if (m_pAsteroids->Request(0, sf::Color::Red, &asteroid)) {
+		if (m_pAsteroids->Request(0.f, sf::Color::Red, &asteroid)) {
 			sf::Vector2f direction =
 				m_pPlayer->GetPosition() - asteroid->GetPosition();
-			float angle = atan(direction.y / direction.x) 
-				* 180.f / (float)constant::PI;
-			asteroid->SetDirection(angle);
+			asteroid->SetDirection(direction);
 		}
 		m_pAsteroids->Update(m_time->asSeconds());
 	}

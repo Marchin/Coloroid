@@ -16,6 +16,7 @@ namespace asteroidSys {
 		void SetColor(const sf::Color& color) override;
 		float GetDirection() const override;
 		void SetDirection(const float angle) override;
+		void SetDirection(const sf::Vector2f& direction);
 		sf::Vector2f GetPosition() const override;
 		void SetPosition(const sf::Vector2f& position) override;
 		void Enable() override;

@@ -47,15 +47,19 @@ namespace asteroidSys {
 	void Asteroid::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
 		m_direction = sf::Vector2f(
-			(float)std::sin(angle * constant::PI / 180.f), 
-			(float)-std::cos(angle * constant::PI / 180.f));
+			(float)std::cos(angle * constant::PI / 180.f), 
+			(float)std::sin(angle * constant::PI / 180.f));
+	}
+
+	void Asteroid::SetDirection(const sf::Vector2f & direction) {
+		m_direction = direction;
 	}
 
 	sf::Vector2f Asteroid::GetPosition() const {
 		return m_sprite.getPosition();
 	}
 
-	void Asteroid::SetPosition(const sf::Vector2f & position) {
+	void Asteroid::SetPosition(const sf::Vector2f& position) {
 		m_sprite.setPosition(position);
 	}
 

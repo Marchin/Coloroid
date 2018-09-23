@@ -5,6 +5,9 @@
 #include "Player.h"
 #include "Asteroid/AsteroidPool.h"
 #include "Controllers\GameController.h"
+namespace Collision {
+	class CollisionManager;
+}
 
 namespace state {
 	class GameState : public IState {
@@ -19,6 +22,7 @@ namespace state {
 		const sf::Time* const m_time;
 		player::Player* m_pPlayer;
 		asteroidSys::AsteroidPool* m_pAsteroids;
+		Collision::CollisionManager* m_pColManager;
 		input::GameController m_gameController;
 	};
 }

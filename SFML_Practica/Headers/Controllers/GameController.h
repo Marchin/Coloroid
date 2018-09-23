@@ -11,21 +11,23 @@
 #define COLORIZE_YELLOW 6
 
 namespace input {
-	class GameController : public IController {
-	public:
-		GameController();
-		~GameController();
-		virtual void UpdateKeys();
-		bool Fire();
-		bool RotateLeft();
-		bool RotateRight();
-		bool ColorizeBlue();
-		bool ColorizeRed();
-		bool ColorizeGreen();
-		bool ColorizeYellow();
-	private:
-		typedef InputObserver<sf::Keyboard::Key> Input;
-		std::vector<Input*> m_keys;
-	};
+
+class GameController : public IController {
+public:
+	GameController();
+	~GameController();
+	virtual void UpdateKeys();
+	bool Fire();
+	bool RotateLeft();
+	bool RotateRight();
+	bool ColorizeBlue();
+	bool ColorizeRed();
+	bool ColorizeGreen();
+	bool ColorizeYellow();
+private:
+	typedef InputObserver<sf::Keyboard::Key> Input;
+	std::vector<Input*> m_keys;
+};
+
 }
 #endif // !GAME_CONTROLLER_H

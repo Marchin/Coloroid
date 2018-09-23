@@ -5,9 +5,11 @@
 #include "Input/InputObserver.h"
 
 namespace input {
-	class IController {
-	public:
-		virtual void UpdateKeys() = 0;
-	};
+
+class IController {
+public:
+	virtual void UpdateKeys() = 0;
+};
+
 }
 #endif // !ICONTROLLER_H

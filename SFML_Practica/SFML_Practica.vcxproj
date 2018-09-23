@@ -26,7 +26,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -171,9 +171,12 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Collision\CollisionManager.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\States\StateController.cpp" />
     <ClCompile Include="Source\Asteroid\Asteroid.cpp" />
     <ClCompile Include="Source\Asteroid\AsteroidPool.cpp" />
-    <ClCompile Include="Source\Colission.cpp" />
+    <ClCompile Include="Source\Collision\Collision.cpp" />
     <ClCompile Include="Source\ColorExtension.cpp" />
     <ClCompile Include="Source\Controllers\GameController.cpp" />
     <ClCompile Include="Source\Player.cpp" />
@@ -189,7 +192,8 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
   <ItemGroup>
     <ClInclude Include="Headers\Asteroid\Asteroid.h" />
     <ClInclude Include="Headers\Asteroid\AsteroidPool.h" />
-    <ClInclude Include="Headers\Collision.h" />
+    <ClInclude Include="Headers\Collision\Collision.h" />
+    <ClInclude Include="Headers\Collision\CollisionManager.h" />
     <ClInclude Include="Headers\ColorExtension.h" />
     <ClInclude Include="Headers\Constants.h" />
     <ClInclude Include="Headers\Controllers\GameController.h" />

@@ -24,11 +24,9 @@ namespace shotSys {
 		return m_sprite.getLocalBounds().height;
 	}
 
-	void Shot::Update(asteroidSys::AsteroidPool& obstacles,
-							const float deltaTime) {
+	void Shot::Update(const float deltaTime) {
 		if (m_beingFired) {
 			m_sprite.move(m_direction * m_speed * deltaTime);
-			CheckCollision(obstacles);
 		}
 	}
 
@@ -39,19 +37,8 @@ namespace shotSys {
 	void Shot::SetDirection(const float angle) {
 		m_sprite.setRotation(angle);
 		m_direction = sf::Vector2f(
-			(float)std::sin(angle * constant::PI/180.f),
-			(float)-std::cos(angle * constant::PI/180.f));
-	}
-
-	void Shot::CheckCollision(asteroidSys::AsteroidPool& asteroids) {
-		for (unsigned int i = 0; i < asteroids.GetSize(); i++) {
-			if (Collision::CircleTest(m_sprite, asteroids[i].GetSprite())) {
-				if (m_sprite.getColor() == asteroids[i].GetColor()) {
-					asteroids[i].Disable();
-				}
-				Disable();
-			}
-		}
+			(float)std::sin(angle * constant::RAD2DEG),
+			(float)-std::cos(angle * constant::RAD2DEG));
 	}
 
 	void Shot::Disable() {
@@ -79,8 +66,16 @@ namespace shotSys {
 		m_sprite.setColor(color);
 	}
 
+	sf::Sprite Shot::GetSprite() const {
+		return m_sprite;
+	}
+
 	bool Shot::IsAvailable() const{
 		return !m_beingFired;
+	}
+
+	bool Shot::IsActive() const {
+		return m_beingFired;
 	}
 
 	void Shot::draw(sf::RenderTarget & target,

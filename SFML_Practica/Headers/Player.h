@@ -13,15 +13,17 @@ namespace player {
 		sf::Vector2f GetPosition() const;
 		void Rotate(const float turnRate, const float deltaTime = 1.f);
 		void Fire();
-		void UpdateShots(
-			asteroidSys::AsteroidPool& obstacles,
-			const float deltaTime = 1.f);
+		shotSys::ShotPool* GetShots();
+		void UpdateShots(const float deltaTime = 1.f);
 		float Width() const;
 		float Height() const;
+		void TakeDamage();
+		sf::Sprite GetSprite() const;
 	private:
 		virtual void draw(sf::RenderTarget& target, 
 						  sf::RenderStates states) const;
-		shotSys::ShotPool* m_pAammo;
+		unsigned int m_lifes;
+		shotSys::ShotPool* m_pAmmo;
 		sf::Texture m_texture;
 		sf::Sprite m_sprite;
 		sf::Color m_color;

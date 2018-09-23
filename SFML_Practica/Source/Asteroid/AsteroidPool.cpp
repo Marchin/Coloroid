@@ -54,8 +54,8 @@ namespace asteroidSys {
 		return m_asteroids.size();
 	}
 
-	Asteroid AsteroidPool::operator[](unsigned int index) {
-		return m_asteroids[index];
+	Asteroid* AsteroidPool::operator[](unsigned int index) {
+		return &(m_asteroids[index]);
 	}
 
 	bool AsteroidPool::IsAvailable(ISprite*& pRequester) {

@@ -1,5 +1,5 @@
 #ifndef SHOT_POOL_H
-#define SHOOT_POOL_H
+#define SHOT_POOL_H
 
 #include "Sprites/ISpritePool.h"
 #include "Shot/Shot.h"
@@ -8,10 +8,11 @@ namespace shotSys {
 	class ShotPool : public ISpritePool{
 	public:
 		ShotPool(const sf::View* pView, unsigned int amount);
+		unsigned int GetSize() const;
+		Shot* operator[](unsigned int index);
 		bool Request(const float angle, const sf::Color& color,
 			Shot** requested = nullptr);
-		void Update(const float deltaTime,
-			asteroidSys::AsteroidPool& obstacles);
+		void Update(const float deltaTime);
 		void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	private:
 		bool IsAvailable(ISprite*& pRequester) override;

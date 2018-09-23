@@ -1,10 +1,19 @@
 #include "Shot/ShotPool.h"
+#include "Constants.h"
 
 namespace shotSys {
 	ShotPool::ShotPool(const sf::View* pView, unsigned int amount) 
 		: m_pView(pView) {
 	
 		m_shots = std::vector<Shot>(amount);
+	}
+
+	unsigned int ShotPool::GetSize() const {
+		return m_shots.size();
+	}
+
+	Shot* ShotPool::operator[](unsigned int index) {
+		return &(m_shots[index]);
 	}
 
 	bool ShotPool::Request(const float angle, const sf::Color& color,
@@ -14,6 +23,10 @@ namespace shotSys {
 		if (IsAvailable(shot)) {
 			ResetPosition(shot);
 			shot->SetColor(color);
+			sf::Vector2f direction (
+				(float)std::sin(angle * constant::RAD2DEG) * 11.f,
+				(float)-std::cos(angle * constant::RAD2DEG) * 11.f);
+			shot->SetPosition(shot->GetPosition() + direction);
 			shot->SetDirection(angle);
 			shot->Enable();
 			if (requested != nullptr) {
@@ -25,11 +38,9 @@ namespace shotSys {
 		}
 	}
 
-	void ShotPool::Update(const float deltaTime,
-		asteroidSys::AsteroidPool& obstacles) {
-
+	void ShotPool::Update(const float deltaTime) {
 		for (unsigned int i = 0; i < m_shots.size(); i++) {
-			m_shots[i].Update(obstacles, deltaTime);
+			m_shots[i].Update(deltaTime);
 			if (OutOfBound(&m_shots[i])) {
 				m_shots[i].Disable();
 			}

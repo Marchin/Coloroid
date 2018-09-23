@@ -24,6 +24,10 @@ namespace asteroidSys {
 		return !m_beingUsed;
 	}
 
+	bool Asteroid::IsActive() const {
+		return m_beingUsed;
+	}
+
 	float Asteroid::Width() const {
 		return m_texture.getSize().x;
 	}

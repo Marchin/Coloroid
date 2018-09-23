@@ -3,7 +3,6 @@
 
 #include "Sprites/ISprite.h"
 #include "ColorExtension.h"
-#include "Collision.h"
 
 namespace asteroidSys {
 	class AsteroidPool;
@@ -13,13 +12,14 @@ namespace shotSys {
 	class Shot : public ISprite{
 	public:
 		Shot();
-		void Update(asteroidSys::AsteroidPool& obstacles,
-			const float deltaTime);
+		void Update(const float deltaTime);
 		float GetDirection() const override;
 		void SetDirection(const float angle) override;
 		sf::Color GetColor() const override;
 		void SetColor(const sf::Color& color) override;
+		sf::Sprite GetSprite() const;
 		bool IsAvailable() const override;
+		bool IsActive() const;
 		void draw(sf::RenderTarget& target,
 			sf::RenderStates states) const override;
 		sf::Vector2f GetPosition() const override;
@@ -29,7 +29,6 @@ namespace shotSys {
 		float Width() const override;
 		float Height() const override;
 	private:
-		void CheckCollision(asteroidSys::AsteroidPool& obstacles);
 		float m_speed;
 		bool m_beingFired;
 		sf::Vector2f m_direction; 

@@ -12,7 +12,7 @@ namespace asteroidSys {
 		bool Request(const float angle, const sf::Color& color,
 			Asteroid** requested = nullptr);
 		void Update(const float deltaTime);
-		Asteroid operator[](unsigned int index);
+		Asteroid* operator[](unsigned int index);
 		unsigned int GetSize() const;
 	private:
 		void draw(sf::RenderTarget& target,

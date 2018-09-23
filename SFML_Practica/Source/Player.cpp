@@ -3,7 +3,7 @@
 
 namespace player {
 	Player::Player(const sf::Vector2f& position, const sf::View* pView) 
-		: m_pView(pView) {
+		: m_lifes(constant::LIFES), m_pView(pView) {
 
 		if (!m_texture.loadFromFile("Resources\\Ship.png")) {
 			printf("texture error");
@@ -12,11 +12,11 @@ namespace player {
 		m_sprite.setOrigin(Width() / 2, Height() / 2);
 		m_sprite.move(position);
 		m_sprite.setColor(sf::Color::Blue);
-		m_pAammo = new shotSys::ShotPool(m_pView, constant::LIFES);
+		m_pAmmo = new shotSys::ShotPool(m_pView, constant::LIFES);
 	}
 
 	Player::~Player() {
-		delete m_pAammo;
+		delete m_pAmmo;
 	}
 
 	void Player::SetColor(const sf::Color& color) {
@@ -32,13 +32,16 @@ namespace player {
 	}
 
 	void Player::Fire() {
-		m_pAammo->Request(m_sprite.getRotation(), m_sprite.getColor());
+		m_pAmmo->Request(m_sprite.getRotation(), m_sprite.getColor());
 	}
 
-	void Player::UpdateShots(asteroidSys::AsteroidPool& obstacles,
-		const float deltaTime) {
+	shotSys::ShotPool* Player::GetShots() {
+		return m_pAmmo;
+	}
 
-		m_pAammo->Update(deltaTime, obstacles);
+	void Player::UpdateShots(const float deltaTime) {
+
+		m_pAmmo->Update(deltaTime);
 	}
 
 	float Player::Width() const{
@@ -49,10 +52,22 @@ namespace player {
 		return m_sprite.getLocalBounds().width;
 	}
 
+	void Player::TakeDamage() {
+		m_lifes--;
+		if (m_lifes == 0) {
+			//fin del juego
+			SetColor(color::Transparent(m_sprite.getColor()));
+		}
+	}
+
+	sf::Sprite Player::GetSprite() const {
+				return m_sprite;
+	}
+
 	void Player::draw(sf::RenderTarget & target,
 		sf::RenderStates states) const {
 
 		target.draw(m_sprite, states);
-		m_pAammo->draw(target, states);
+		m_pAmmo->draw(target, states);
 	}
 }

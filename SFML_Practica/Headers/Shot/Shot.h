@@ -2,7 +2,6 @@
 #define SHOT_H
 
 #include "Sprites/ISprite.h"
-#include "ColorExtension.h"
 
 namespace asteroidSys {
 

@@ -2,7 +2,6 @@
 #define ASTEROID_H
 
 #include "Sprites/ISprite.h"
-#include "ColorExtension.h"
 
 namespace asteroidSys {
 

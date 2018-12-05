@@ -11,7 +11,7 @@ const float ASTEROIDS_SPEED = .3f;
 const float SHOTS_SPEED = 100.f;
 const double PI = 3.14159265;
 const double RAD2DEG = PI / (double)180;
-
+const unsigned int COLORS_AMOUNT = 4;
 }
 
 #endif // !CONSTANTS_H

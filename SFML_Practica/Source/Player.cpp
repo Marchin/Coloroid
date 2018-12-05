@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Constants.h"
+#include "ColorExtension.h"
 
 namespace player {
 

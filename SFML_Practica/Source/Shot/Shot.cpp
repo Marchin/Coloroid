@@ -1,6 +1,7 @@
 #include "Shot\Shot.h"
 #include "Asteroid/AsteroidPool.h"
 #include "Constants.h"
+#include "ColorExtension.h"
 
 namespace shotSys {
 

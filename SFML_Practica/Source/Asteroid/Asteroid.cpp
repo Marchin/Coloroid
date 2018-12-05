@@ -1,4 +1,5 @@
 #include "Asteroid/Asteroid.h"
+#include "ColorExtension.h"
 #include "Constants.h"
 
 namespace asteroidSys {

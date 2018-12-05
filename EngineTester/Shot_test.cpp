@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../SFML_Practica/Headers/Shot/Shot.h"
+#include "Shot/Shot.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

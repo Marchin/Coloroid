@@ -18,6 +18,7 @@ public:
 	void UpdateShots(const float deltaTime = 1.f);
 	float Width() const;
 	float Height() const;
+	unsigned int GetLifes();
 	void TakeDamage();
 	sf::Sprite GetSprite() const;
 private:

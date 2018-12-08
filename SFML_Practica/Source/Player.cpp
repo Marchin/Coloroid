@@ -12,7 +12,7 @@ Player::Player(const sf::Vector2f& position, const sf::View* pView)
 	}
 	m_sprite.setTexture(m_texture);
 	m_sprite.setOrigin(Width() / 2, Height() / 2);
-	m_sprite.move(position);
+	m_sprite.setPosition(position);
 	m_sprite.setColor(sf::Color::Blue);
 	m_pAmmo = new shotSys::ShotPool(m_pView, constant::LIFES);
 }
@@ -54,6 +54,10 @@ float Player::Height() const {
 	return m_sprite.getLocalBounds().width;
 }
 
+unsigned int Player::GetLifes() {
+	return m_lifes;
+}
+
 void Player::TakeDamage() {
 	m_lifes--;
 	if (m_lifes == 0) {
@@ -63,7 +67,7 @@ void Player::TakeDamage() {
 }
 
 sf::Sprite Player::GetSprite() const {
-			return m_sprite;
+	return m_sprite;
 }
 
 void Player::draw(sf::RenderTarget & target,

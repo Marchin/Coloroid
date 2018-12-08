@@ -4,7 +4,8 @@
 #include "IState.h"
 #include "Player.h"
 #include "Asteroid/AsteroidPool.h"
-#include "Controllers\GameController.h"
+#include "Controllers/GameController.h"
+
 namespace Collision {
 
 class CollisionManager;
@@ -21,12 +22,17 @@ public:
 private:
 	void CheckInput();
 	void UpdateAsteroids();
+	sf::Text m_scoreText;
+	sf::Texture m_indicatorImage;
+	sf::Sprite m_indicators[4];
 	sf::RenderWindow* m_pWindow;
 	const sf::Time* const m_time;
 	player::Player* m_pPlayer;
 	asteroidSys::AsteroidPool* m_pAsteroids;
 	Collision::CollisionManager* m_pColManager;
 	input::GameController m_gameController;
+	sf::Text text;
+	sf::Font font;
 };
 
 }

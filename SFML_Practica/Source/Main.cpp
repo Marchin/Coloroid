@@ -1,19 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include "States/StateController.h"
 #include "States/GameState.h"
+#include <ctime>
 #ifdef _DEBUG
 #include "vld.h"
 #endif // _DEBUG
 
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(512, 480), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(512, 480), "Coloroid");
 	sf::View view(sf::FloatRect(0, 0, 256, 240));
 	window.setView(view);
 	sf::Clock clock;
 	sf::Time elapsed;
 	state::GameState initState(&window, &elapsed);
 	state::StateController gameState(&window, &elapsed, &initState);
+
+	srand(time(0));
 
 	while (window.isOpen()) {
 		sf::Event event;

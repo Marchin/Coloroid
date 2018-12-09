@@ -21,10 +21,10 @@ sf::Color ChooseColor(unsigned int index) {
 		newColor = sf::Color::Red;
 		break;
 	case 2:
-		newColor = sf::Color::Yellow;
+		newColor = sf::Color::Green;
 		break;
 	case 3:
-		newColor = sf::Color::Green;
+		newColor = sf::Color::Yellow;
 		break;
 	default:
 		newColor = sf::Color::Blue;

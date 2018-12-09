@@ -54,7 +54,7 @@ float Player::Height() const {
 	return m_sprite.getLocalBounds().width;
 }
 
-unsigned int Player::GetLifes() {
+int Player::GetLifes() {
 	return m_lifes;
 }
 

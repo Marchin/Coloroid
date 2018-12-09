@@ -14,7 +14,7 @@ int main() {
 	sf::Clock clock;
 	sf::Time elapsed;
 	state::GameState initState(&window, &elapsed);
-	state::StateController gameState(&window, &elapsed, &initState);
+	state::StateController stateController(&window, &elapsed, &initState);
 
 	srand(time(0));
 
@@ -30,8 +30,8 @@ int main() {
 		}
 
 		window.clear();
-		gameState.Update();
-		if (gameState.HasEnded()) {
+		stateController.Update();
+		if (stateController.HasEnded()) {
 			window.close();
 		}
 		window.display();

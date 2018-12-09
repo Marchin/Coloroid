@@ -18,13 +18,13 @@ public:
 	void UpdateShots(const float deltaTime = 1.f);
 	float Width() const;
 	float Height() const;
-	unsigned int GetLifes();
+	int GetLifes();
 	void TakeDamage();
 	sf::Sprite GetSprite() const;
 private:
 	virtual void draw(sf::RenderTarget& target, 
 						sf::RenderStates states) const;
-	unsigned int m_lifes;
+	int m_lifes;
 	shotSys::ShotPool* m_pAmmo;
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;

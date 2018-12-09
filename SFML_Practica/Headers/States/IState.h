@@ -8,7 +8,7 @@ namespace state {
 class IState {
 public:
 	virtual ~IState() {}
-	virtual void Update(IState* nextState, bool& exitGame) = 0;
+	virtual void Update(IState** nextState, bool& exitGame) = 0;
 };
 
 }

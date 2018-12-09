@@ -18,7 +18,7 @@ class GameState : public IState {
 public:
 	GameState(sf::RenderWindow* window, const sf::Time* elapsed);
 	~GameState();
-	void Update(IState* pNextState, bool& exitGame) override;
+	void Update(IState** pNextState, bool& exitGame) override;
 private:
 	void CheckInput();
 	void UpdateAsteroids();
@@ -26,13 +26,13 @@ private:
 	sf::Texture m_indicatorImage;
 	sf::Sprite m_indicators[4];
 	sf::RenderWindow* m_pWindow;
-	const sf::Time* const m_time;
+	const sf::Time* const m_pTime;
 	player::Player* m_pPlayer;
 	asteroidSys::AsteroidPool* m_pAsteroids;
 	Collision::CollisionManager* m_pColManager;
 	input::GameController m_gameController;
-	sf::Text text;
-	sf::Font font;
+	sf::Text m_text;
+	sf::Font m_font;
 };
 
 }

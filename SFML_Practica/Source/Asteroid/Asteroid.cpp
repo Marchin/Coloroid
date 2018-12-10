@@ -11,6 +11,9 @@ Asteroid::Asteroid()
 	if (!m_texture.loadFromFile("../SFML_Practica/Resources/Asteroid.png")) {
 		printf("texture error");
 	}
+	if (!m_asteroidExplosionFX.loadFromFile("Resources/ExplosionAsteroid.wav")) {
+		printf("Error: fail loading explosion sound");
+	}
 	m_sprite.setTexture(m_texture);
 	m_sprite.setOrigin(Width() / 2, Height() / 2);
 	m_sprite.setColor(color::Transparent(sf::Color::Blue));
@@ -76,6 +79,12 @@ void Asteroid::Enable() {
 void Asteroid::Disable() {
 	m_beingUsed = false;
 	m_sprite.setColor(color::Transparent(m_sprite.getColor()));
+}
+
+void Asteroid::Destroy() {
+	m_asteroidSound.setBuffer(m_asteroidExplosionFX);
+	m_asteroidSound.play();
+	Disable();
 }
 
 sf::Sprite Asteroid::GetSprite() const {

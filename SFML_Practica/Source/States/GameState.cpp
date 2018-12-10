@@ -47,7 +47,7 @@ namespace state {
 	void GameState::Update(IState** pNextState, bool &exitGame) {
 		CheckInput();
 		UpdateAsteroids();
-		m_pPlayer->UpdateShots(m_pTime->asSeconds());
+		m_pPlayer->Update(m_pTime->asSeconds());
 		m_pWindow->draw(*m_pPlayer);
 		m_pWindow->draw(*m_pAsteroids);
 		m_pWindow->draw(m_text);

@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Shot/ShotPool.h"
 
 namespace player {
@@ -15,7 +16,7 @@ public:
 	void Rotate(const float turnRate, const float deltaTime = 1.f);
 	void Fire();
 	shotSys::ShotPool* GetShots();
-	void UpdateShots(const float deltaTime = 1.f);
+	void Update(const float deltaTime = 1.f);
 	float Width() const;
 	float Height() const;
 	int GetLifes();
@@ -25,10 +26,15 @@ private:
 	virtual void draw(sf::RenderTarget& target, 
 						sf::RenderStates states) const;
 	int m_lifes;
+	const float m_INVI_DURATION;
+	float m_inviCounter;
 	shotSys::ShotPool* m_pAmmo;
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 	sf::Color m_color;
+	sf::Sound m_shipSound;
+	sf::SoundBuffer m_explosionFX;
+	sf::SoundBuffer m_shotFX;
 	const sf::View* m_pView;
 
 };

@@ -28,7 +28,7 @@ namespace Collision {
 							if ((*m_pShots)[iShot]->GetColor() ==
 								(*m_pAsteroids)[iAsteroid]->GetColor()) {
 
-								(*m_pAsteroids)[iAsteroid]->Disable();
+								(*m_pAsteroids)[iAsteroid]->Destroy();
 							}
 							(*m_pShots)[iShot]->Disable();
 							break;

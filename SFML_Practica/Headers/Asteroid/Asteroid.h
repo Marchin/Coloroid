@@ -1,6 +1,7 @@
 #ifndef ASTEROID_H
 #define ASTEROID_H
 
+#include <SFML/Audio.hpp>
 #include "Sprites/ISprite.h"
 
 namespace asteroidSys {
@@ -22,6 +23,7 @@ public:
 	void SetPosition(const sf::Vector2f& position) override;
 	void Enable() override;
 	void Disable() override;
+	void Destroy();
 	sf::Sprite GetSprite() const;
 	void draw(sf::RenderTarget& target,
 		sf::RenderStates states) const override;
@@ -31,6 +33,8 @@ private:
 	sf::Vector2f m_direction;
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
+	sf::Sound m_asteroidSound;
+	sf::SoundBuffer m_asteroidExplosionFX;
 };
 
 }

@@ -18,7 +18,8 @@ private:
 	input::EndController m_endController;
 	sf::Font m_font;
 	sf::Text m_gameOverText;
-	const float m_flickInterval;
+	const float m_FLICK_INTERVAL;
+	float m_enableControlCounter;
 	float m_counter;
 };
 

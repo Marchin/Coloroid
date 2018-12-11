@@ -7,8 +7,8 @@ namespace state {
 
 class StateController {
 public:
-	StateController(sf::RenderWindow* window,
-		const sf::Time* time, IState* initialState);
+	StateController(sf::RenderWindow* pWindow,
+		const sf::Time* pTime);
 	~StateController();
 	void Update();
 	bool HasEnded() const;

@@ -5,11 +5,10 @@
 
 namespace state {
 
-	StateController::StateController(sf::RenderWindow *window, const sf::Time* time,
-		IState *initialState)
-		: m_pWindow(window), m_time(time) {
+	StateController::StateController(sf::RenderWindow *pWindow, const sf::Time* pTime)
+		: m_pWindow(pWindow), m_time(pTime) {
 
-		m_pCurrentState = new StartState(window, time);
+		m_pCurrentState = new StartState(pWindow, pTime);
 		m_pNextState = m_pCurrentState;
 	}
 

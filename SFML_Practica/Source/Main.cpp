@@ -13,8 +13,7 @@ int main() {
 	window.setView(view);
 	sf::Clock clock;
 	sf::Time elapsed;
-	state::StartState initState(&window, &elapsed);
-	state::StateController stateController(&window, &elapsed, &initState);
+	state::StateController stateController(&window, &elapsed);
 
 	srand(time(0));
 

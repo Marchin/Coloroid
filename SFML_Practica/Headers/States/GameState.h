@@ -22,7 +22,6 @@ public:
 private:
 	void CheckInput();
 	void UpdateAsteroids();
-	sf::Text m_scoreText;
 	sf::Texture m_indicatorImage;
 	sf::Sprite m_indicators[4];
 	sf::RenderWindow* m_pWindow;
@@ -31,8 +30,10 @@ private:
 	asteroidSys::AsteroidPool* m_pAsteroids;
 	Collision::CollisionManager* m_pColManager;
 	input::GameController m_gameController;
-	sf::Text m_text;
+	sf::Text m_lifeText;
+	sf::Text m_scoreText;
 	sf::Font m_font;
+	int m_score;
 };
 
 }

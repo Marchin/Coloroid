@@ -1,5 +1,6 @@
 #include "Collision/CollisionManager.h"
 #include "Collision/Collision.h"
+#include "Constants.h"
 
 namespace Collision {
 
@@ -8,7 +9,7 @@ namespace Collision {
 		: m_pPlayer(pPlayer), m_pShots(pShots), m_pAsteroids(pAsteroids) {
 	}
 
-	void CollisionManager::Update() {
+	void CollisionManager::Update(int* pCurrentScore) {
 		for (unsigned int iAsteroid = 0;
 			iAsteroid < m_pAsteroids->GetSize(); iAsteroid++) {
 			if ((*m_pAsteroids)[iAsteroid]->IsActive()) {
@@ -29,6 +30,7 @@ namespace Collision {
 								(*m_pAsteroids)[iAsteroid]->GetColor()) {
 
 								(*m_pAsteroids)[iAsteroid]->Destroy();
+								*pCurrentScore += constant::ASTEROIDS_POINTS;
 							}
 							(*m_pShots)[iShot]->Disable();
 							break;

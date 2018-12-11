@@ -9,7 +9,7 @@
 namespace state {
 
 	GameState::GameState(sf::RenderWindow *window, const sf::Time *elapsed)
-		: m_pWindow(window), m_pTime(elapsed) {
+		: m_pWindow(window), m_pTime(elapsed), m_score(0) {
 
 		sf::Vector2f screenCenter(window->getView().getSize().x / 2.f,
 			window->getView().getSize().y / 2.f);
@@ -22,10 +22,15 @@ namespace state {
 		if (!m_font.loadFromFile("Resources/8-BIT WONDER.TTF")) {
 			printf("Error: Font could not be loaded");
 		}
-		m_text.setCharacterSize(8);
-		m_text.setPosition(sf::Vector2f(5.f, 5.f));
-		m_text.setStyle(sf::Text::Bold);
-		m_text.setFont(m_font);
+		m_lifeText.setCharacterSize(9);
+		m_lifeText.setPosition(sf::Vector2f(5.f, 5.f));
+		m_lifeText.setStyle(sf::Text::Bold);
+		m_lifeText.setFont(m_font);
+
+		m_scoreText.setPosition(sf::Vector2f(m_pWindow->getView().getCenter().x, 5.f));
+		m_scoreText.setCharacterSize(9);
+		m_scoreText.setStyle(sf::Text::Bold);
+		m_scoreText.setFont(m_font);
 
 		if (!m_indicatorImage.loadFromFile("Resources/Indicator.png")) {
 			printf("texture error");
@@ -50,15 +55,17 @@ namespace state {
 		m_pPlayer->Update(m_pTime->asSeconds());
 		m_pWindow->draw(*m_pPlayer);
 		m_pWindow->draw(*m_pAsteroids);
-		m_pWindow->draw(m_text);
+		m_pWindow->draw(m_lifeText);
 		for (int i = 0; i < 4; i++) {
 			m_pWindow->draw(m_indicators[i]);
 		}
-		m_pColManager->Update();
+		m_pColManager->Update(&m_score);
+		m_scoreText.setString(std::to_string(m_score));
+		m_pWindow->draw(m_scoreText);
 		std::ostringstream lifeText;
 		int lifesLeft = m_pPlayer->GetLifes();
 		lifeText << "Lifes " << m_pPlayer->GetLifes();
-		m_text.setString(lifeText.str());
+		m_lifeText.setString(lifeText.str());
 		if (lifesLeft <= 0) {
 			*pNextState = new EndState(m_pWindow, m_pTime);
 		} else {

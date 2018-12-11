@@ -8,6 +8,7 @@ const float TURN_RATE = 360.f;
 const unsigned int ASTEROIDS = 5;
 const float ASTEROIDS_INTERVAL = 5.f;
 const float ASTEROIDS_SPEED = .2f;
+const int ASTEROIDS_POINTS = 100;
 const float SHOTS_SPEED = 100.f;
 const double PI = 3.14159265;
 const double RAD2DEG = PI / (double)180;

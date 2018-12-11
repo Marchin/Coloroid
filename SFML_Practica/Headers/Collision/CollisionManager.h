@@ -9,9 +9,9 @@ namespace Collision {
 
 class CollisionManager {
 public:
-	CollisionManager(player::Player* pPlayer, shotSys::ShotPool* ´Shots,
+	CollisionManager(player::Player* pPlayer, shotSys::ShotPool* Shots,
 		asteroidSys::AsteroidPool* pAsteroids);
-	void Update();
+	void Update(int* pCurrentScore);
 
 private:
 	player::Player* m_pPlayer;

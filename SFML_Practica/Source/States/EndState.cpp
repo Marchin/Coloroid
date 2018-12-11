@@ -11,7 +11,11 @@ EndState::EndState(sf::RenderWindow* window, const sf::Time* elapsed) :
 	if (!m_font.loadFromFile("Resources/8-BIT WONDER.TTF")) {
 		printf("Error: Font could not be loaded");
 	}
-
+	if (!m_loseSound.loadFromFile("Resources/Lose.wav")) {
+		printf("Error: Lose sound not found");
+	}
+	m_soundPlayer.setBuffer(m_loseSound);
+	m_soundPlayer.play();
 	m_gameOverText.setStyle(sf::Text::Bold);
 	m_gameOverText.setFont(m_font);
 	m_gameOverText.setString("GAME OVER");

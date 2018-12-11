@@ -133,7 +133,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-d-2.dll" "$(OutDi
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)Libraries\SFML-2.4.2\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-s.lib;sfml-graphics-s.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;sfml-system-s.lib;opengl32.lib;freetype.lib;jpeg.lib;sfml-window-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PreBuildEvent>
@@ -173,8 +173,10 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
   <ItemGroup>
     <ClCompile Include="Source\Collision\CollisionManager.cpp" />
     <ClCompile Include="Source\Controllers\EndController.cpp" />
+    <ClCompile Include="Source\Controllers\StartController.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\States\EndState.cpp" />
+    <ClCompile Include="Source\States\StartState.cpp" />
     <ClCompile Include="Source\States\StateController.cpp" />
     <ClCompile Include="Source\Asteroid\Asteroid.cpp" />
     <ClCompile Include="Source\Asteroid\AsteroidPool.cpp" />
@@ -202,6 +204,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClInclude Include="Headers\Controllers\GameController.h" />
     <ClInclude Include="Headers\Controllers\IController.h" />
     <ClInclude Include="Headers\Controllers\Input\InputObserver.h" />
+    <ClInclude Include="Headers\Controllers\StartController.h" />
     <ClInclude Include="Headers\Player.h" />
     <ClInclude Include="Headers\Shot\Shot.h" />
     <ClInclude Include="Headers\Shot\ShotPool.h" />
@@ -210,6 +213,7 @@ COPY "$(SolutionDir)Libraries\SFML-2.4.2 (x64)\bin\sfml-window-2.dll" "$(OutDir)
     <ClInclude Include="Headers\States\EndState.h" />
     <ClInclude Include="Headers\States\GameState.h" />
     <ClInclude Include="Headers\States\IState.h" />
+    <ClInclude Include="Headers\States\StartState.h" />
     <ClInclude Include="Headers\States\StateController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

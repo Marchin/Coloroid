@@ -1,5 +1,4 @@
 #include "Controllers\GameController.h"
-#include <functional>
 
 namespace input {
 

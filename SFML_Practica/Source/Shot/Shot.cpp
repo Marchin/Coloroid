@@ -11,7 +11,7 @@ Shot::Shot()
 	m_beingFired(false) {
 
 	if (!m_texture.loadFromFile("../SFML_Practica/Resources/Shot.png")) {
-		printf("texture error");
+		printf("Error: failed to load shot's texture");
 	}
 	m_sprite.setTexture(m_texture);
 	m_sprite.setOrigin(Width() / 2, Height() / 2);

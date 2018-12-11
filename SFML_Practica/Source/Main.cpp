@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "States/StateController.h"
-#include "States/GameState.h"
+#include "States/StartState.h"
 #include <ctime>
 #ifdef _DEBUG
 #include "vld.h"
@@ -13,7 +13,7 @@ int main() {
 	window.setView(view);
 	sf::Clock clock;
 	sf::Time elapsed;
-	state::GameState initState(&window, &elapsed);
+	state::StartState initState(&window, &elapsed);
 	state::StateController stateController(&window, &elapsed, &initState);
 
 	srand(time(0));

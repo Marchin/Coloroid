@@ -1,5 +1,6 @@
 #include "States/StateController.h"
 #include "States/GameState.h"
+#include "States/StartState.h"
 #include "States/EndState.h"
 
 namespace state {
@@ -8,7 +9,7 @@ namespace state {
 		IState *initialState)
 		: m_pWindow(window), m_time(time) {
 
-		m_pCurrentState = new GameState(window, time);
+		m_pCurrentState = new StartState(window, time);
 		m_pNextState = m_pCurrentState;
 	}
 

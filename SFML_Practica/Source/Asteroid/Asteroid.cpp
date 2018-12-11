@@ -9,7 +9,7 @@ Asteroid::Asteroid()
 	m_beingUsed(false) {
 
 	if (!m_texture.loadFromFile("../SFML_Practica/Resources/Asteroid.png")) {
-		printf("texture error");
+		printf("Error: failed to load asteroids's texture");
 	}
 	if (!m_asteroidExplosionFX.loadFromFile("Resources/ExplosionAsteroid.wav")) {
 		printf("Error: fail loading explosion sound");

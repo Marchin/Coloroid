@@ -1,11 +1,12 @@
 #include "States/EndState.h"
+#include "States/StartState.h"
 #include "ColorExtension.h"
 
 namespace state {
 
 EndState::EndState(sf::RenderWindow* window, const sf::Time* elapsed) :
 	m_pWindow(window), m_pTime(elapsed), m_FLICK_INTERVAL(0.75f), 
-	m_counter(m_FLICK_INTERVAL), m_enableControlCounter(2.f) {
+	m_counter(m_FLICK_INTERVAL), m_enableControlCounter(1.5f) {
 
 	if (!m_font.loadFromFile("Resources/8-BIT WONDER.TTF")) {
 		printf("Error: Font could not be loaded");
@@ -43,7 +44,7 @@ void EndState::Update(IState** pNextState, bool& exitGame){
 		m_enableControlCounter -= m_pTime->asSeconds();
 	}
 	if (m_endController.Confirm()) {
-		exitGame = true;
+		*pNextState = new StartState(m_pWindow, m_pTime);
 	}
 }
 

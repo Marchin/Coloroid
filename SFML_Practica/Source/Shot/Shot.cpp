@@ -10,7 +10,7 @@ Shot::Shot()
 	m_direction(sf::Vector2f(0.f, 0.f)),
 	m_beingFired(false) {
 
-	if (!m_texture.loadFromFile("../SFML_Practica/Resources/Shot.png")) {
+	if (!m_texture.loadFromFile("Resources/Shot.png")) {
 		printf("Error: failed to load shot's texture");
 	}
 	m_sprite.setTexture(m_texture);

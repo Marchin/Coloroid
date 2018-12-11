@@ -8,7 +8,7 @@ Asteroid::Asteroid()
 	: m_speed(constant::ASTEROIDS_SPEED), m_direction(sf::Vector2f(0.f, 0.f)),
 	m_beingUsed(false) {
 
-	if (!m_texture.loadFromFile("../SFML_Practica/Resources/Asteroid.png")) {
+	if (!m_texture.loadFromFile("Resources/Asteroid.png")) {
 		printf("Error: failed to load asteroids's texture");
 	}
 	if (!m_asteroidExplosionFX.loadFromFile("Resources/ExplosionAsteroid.wav")) {
